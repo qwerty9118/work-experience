@@ -26,8 +26,10 @@
     props: {
     },
     mounted() {
+      this.sizeRatioFunction();
       this.layoutGenerator();
       this.setProbability();
+
     },
     components: {
       Task,
@@ -41,25 +43,59 @@
           // replace # with the widget name(should also be in components and have been imported)
           // replace @ with the shape(1-4, see guide at top)
           //{ Widget: "#", Shape: "@" }
-          { Widget: "Weather", Shape: "1" }
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "1" },
+          { Widget: "Weather", Shape: "2" },
+          { Widget: "Weather", Shape: "2" },
+          { Widget: "Weather", Shape: "2" },
+          { Widget: "Weather", Shape: "2" },
+          { Widget: "Weather", Shape: "2" },
+          { Widget: "Weather", Shape: "3" },
+          { Widget: "Weather", Shape: "3" },
+          { Widget: "Weather", Shape: "3" },
+          { Widget: "Weather", Shape: "3" },
+          { Widget: "Weather", Shape: "3" },
+          { Widget: "Weather", Shape: "4" },
+          { Widget: "Weather", Shape: "4" },
+          { Widget: "Weather", Shape: "4" }
         ],
-        sizeRatio: { Uno: "", Dos: "", Tres: "", Cuatro: "" },
+        sizeRatio: { Uno: 0, Dos: 0, Tres: 0, Cuatro: 0 },
         totalAmountOfWidgets: 0,
-        probabilityOf1: 0,
-        probabilityOf2: 0,
-        probabilityOf3: 0,
-        probabilityOf4: 0
+        totalOf12: 0,
+        totalOf13: 0
       }
     },
     computed: {
     },
     methods: {
+      sizeRatioFunction() {
+        for (var i = 0; i < this.availableWidgets.length; i++) {
+          if (this.availableWidgets[i].Shape === "1") {
+            this.sizeRatio.Uno += 1
+          }
+          else if (this.availableWidgets[i].Shape === "2") {
+            this.sizeRatio.Dos += 1
+          }
+          else if (this.availableWidgets[i].Shape === "3") {
+            this.sizeRatio.Tres += 1
+          }
+          else{
+            this.sizeRatio.Cuatros += 1
+          }
+        }
+      },
       setProbability() {
-        this.totalAmountOfWidgets = this.sizeRatio.Uno+this.sizeRatio.Dos+this.sizeRatio.Tres+this.sizeRatio.Cuatro,
-        this.probabilityOf1 = (this.sizeRatio.Uno/this.totalAmountOfWidgets);
-        this.probabilityOf2 = (this.sizeRatio.Dos/this.totalAmountOfWidgets);
-        this.probabilityOf3 = (this.sizeRatio.Tres/this.totalAmountOfWidgets);
-        this.probabilityOf4 = (this.sizeRatio.Cuatro/this.totalAmountOfWidgets);
+        this.totalAmountOfWidgets = (this.sizeRatio.Uno+this.sizeRatio.Dos+this.sizeRatio.Tres+this.sizeRatio.Cuatro);
+        this.totalOf12 = (this.sizeRatio.Uno+this.sizeRatio.Dos);
+        this.totalOf13 = (this.sizeRatio.Uno+this.sizeRatio.Tres);
+        console.log("12="+this.totalOf12);
+        console.log("13="+this.totalOf13);
+        console.log("wid="+this.totalAmountOfWidgets);
       },
       layoutGenerator() {
         this.spaceList = [];
@@ -74,6 +110,7 @@
         var sizeXClass = "";
         var sizeYClass = "";
         var colourClass = "";
+        var randomSize = 0;
         function findElement(value, index, array) {
           return value === definedBlocks[4][reZero];
         }
@@ -90,8 +127,8 @@
                 //value can be 1, 2 or 3 depending on where it is
                 if (X === 4) {
                   //value can only be 1 or 3
-                  var randomSize = Math.floor((Math.random() * 2));
-                  if (randomSize === 1) {
+                  randomSize = Math.floor((Math.random() * this.totalOf13));
+                  if (randomSize > this.sizeRatio.Uno) {
                     //value is set to shape 3
                     grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X] = String.fromCharCode(97 + linearPlace);
@@ -105,8 +142,8 @@
                 }
                 else {
                   //value can only be 1 or 2
-                  randomSize = Math.floor((Math.random() * 2));
-                  if ((randomSize === 1) && (grid[Y][X+1] === 0)) {
+                  randomSize = Math.floor((Math.random() * this.totalOf12));
+                  if ((randomSize > this.sizeRatio.Uno) && (grid[Y][X+1] === 0)) {
                     //value is set to shape 2
                     grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X] = String.fromCharCode(97 + linearPlace);
@@ -122,20 +159,20 @@
               else {
                 if (grid[Y][X+1] === 0) {
                   //value can be set to 1, 2, 3 or 4
-                  randomSize = Math.floor((Math.random() * 4));
-                  if (randomSize === 1) {
+                  randomSize = Math.floor((Math.random() * this.totalAmountOfWidgets));
+                  if (randomSize > this.sizeRatio.Uno) {
                     //value is set to shape 2
                     grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X] = String.fromCharCode(97 + linearPlace);
                     addToDef(1, grid[Y][X]);
                   }
-                  else if (randomSize === 2) {
+                  else if (randomSize > this.sizeRatio.Dos) {
                     //value is set to shape 3
                     grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X] = String.fromCharCode(97 + linearPlace);
                     addToDef(2, grid[Y][X]);
                   }
-                  else if (randomSize === 3) {
+                  else if (randomSize > this.sizeRatio.Tres) {
                     //value is set to 4
                     grid[Y+1][X+1] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
@@ -151,7 +188,8 @@
                 }
                 else {
                   //value can be set to 1 or 3
-                  if (randomSize === 1) {
+                  //randomSize = Math.floor((Math.random() * this.totalOf13));
+                  if (randomSize === 1/*> this.sizeRatio.Uno*/) {
                     //value is set to shape 3
                     grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
                     grid[Y][X] = String.fromCharCode(97 + linearPlace);
