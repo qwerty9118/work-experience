@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Versions of the algorithm that work</title>
+</head>
+<body>
+<br><br>
+<h3>Number version:</h3><br>
+<p id="answer1">temp</p><br>
+<input type="button" class="button" value="Regen Numbers" onclick="regenAlgorithmNum()"><br><br><br><br>
+
+<h3>Letter version:</h3><br>
+<div id="answer2wrapper"><p id="answer2">temp</p></div><br>
+<input type="button" class="button" value="Regen Letters" onclick="regenAlgorithmLet()"><br><br><br><br>
+
+<h3>Size version:</h3><br>
+<p id="answer3">temp</p><br>
+<input type="button" id="btn1" class="button" value="Regen Sizes" onclick="regenAlgorithmCol()">
+<input type="number" class="num" id="num1" min="1" max="2704" value="5" oninput="algorithmGridSizeX = this.value">
+<input type="number" class="num" id="num2" min="1" max="2704" value="3" oninput="algorithmGridSizeY = document.getElementById('num2').value"><br><br><br><br>
+
+<h3>Colour version:</h3><br>
+<p id="answer4">temp</p><br>
+<input type="button" class="button" value="Regen Colours" onclick="regenAlgorithmCol()"><br><br><br><br>
+
+<script>
+  var algorithmGridSizeX;
+  var algorithmGridSizeY;
+  function regenAlgorithmNum() {
+    document.getElementById("answer1").innerHTML = layoutGeneratorNumberV();
+  }
+  function regenAlgorithmLet() {
+    document.getElementById("answer2").innerHTML = layoutGeneratorLetterV();
+  }
+  function regenAlgorithmCol() {
+    //document.getElementById("answer4").innerHTML = layoutGeneratorColourV();
+  }
+  function layoutGeneratorNumberV() {
+    var grid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+    for (var Y = 0; Y < grid.length; Y++) {
+      for (var X = 0; X < grid[0].length; X++) {
+        console.log("X: ", X, "   Y: ", Y, "   grid: ", grid, "   grid location value: ", grid[Y][X]);//-------------------------------------------------------------------
+        if (grid[Y][X] === 0) {
+          //if the value is not already occupied
+          if ((Y === 2) && (X === 4)) {
+            //value can only be 1, and is set to that
+            grid[Y][X] = 1;
+          }
+          else if ((Y === 2) || (X === 4)) {
+            //value can be 1, 2 or 3 depending on where it is
+            if (X === 4) {
+              //value can only be 1 or 3
+              var randomSize = Math.floor((Math.random() * 2));
+              if (randomSize === 1) {
+                //value is set to 3
+                grid[Y+1][X] = 3;
+                grid[Y][X] = 3;
+              }
+              else {
+                //value is set to 1
+                grid[Y][X] = 1;
+              }
+            }
+            else {
+              //value can only be 1 or 2
+              var randomSize = Math.floor((Math.random() * 2));
+              if ((randomSize === 1) && (grid[Y][X+1] === 0)) {
+                //value is set to 2
+                grid[Y][X+1] = 2;
+                grid[Y][X] = 2;
+              }
+              else {
+                //value is set to 1
+                grid[Y][X] = 1;
+              }
+            }
+          }
+          else {
+            if (grid[Y][X+1] === 0) {
+              //value can be set to 1, 2, 3 or 4
+              var randomSize = Math.floor((Math.random() * 4));
+              if (randomSize === 1) {
+                //value is set to 2
+                grid[Y][X+1] = 2;
+                grid[Y][X] = 2;
+              }
+              else if (randomSize === 2) {
+                //value is set to 3
+                grid[Y+1][X] = 3;
+                grid[Y][X] = 3;
+              }
+              else if (randomSize === 3) {
+                //value is set to 4
+                grid[Y+1][X+1] = 4;
+                grid[Y][X+1] = 4;
+                grid[Y+1][X] = 4;
+                grid[Y][X] = 4;
+              }
+              else {
+                //value is set to 1
+                grid[Y][X] = 1;
+              }
+            }
+            else {
+              //value can be set to 1 or 3
+              if (randomSize === 1) {
+                //value is set to 3
+                grid[Y+1][X] = 3;
+                grid[Y][X] = 3;
+              }
+              else {
+                //value is set to 1
+                grid[Y][X] = 1;
+              }
+            }
+          }
+        }
+        else {
+          grid[Y][X] = grid[Y][X]
+        }
+      }
+    }
+    return (grid[0]+"<br>"+grid[1]+"<br>"+grid[2]+"<br>")
+  }
+
+  function layoutGeneratorLetterV() {
+    var grid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+    var linearPlace = 0
+    for (var Y = 0; Y < grid.length; Y++) {
+      for (var X = 0; X < grid[0].length; X++) {
+        console.log("X: ", X, "   Y: ", Y, "   grid: ", grid, "   grid location value: ", grid[Y][X]);//-------------------------------------------------------------------
+        if (grid[Y][X] === 0) {
+          //if the value is not already occupied
+          if ((Y === 2) && (X === 4)) {
+            //value can only be shape 1, and is set to that.
+            grid[Y][X] = String.fromCharCode(97 + linearPlace);
+          }
+          else if ((Y === 2) || (X === 4)) {
+            //value can be 1, 2 or 3 depending on where it is
+            if (X === 4) {
+              //value can only be 1 or 3
+              var randomSize = Math.floor((Math.random() * 2));
+              if (randomSize === 1) {
+                //value is set to shape 3
+                grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else {
+                //value is set to shape 1
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+            }
+            else {
+              //value can only be 1 or 2
+              var randomSize = Math.floor((Math.random() * 2));
+              if ((randomSize === 1) && (grid[Y][X+1] === 0)) {
+                //value is set to shape 2
+                grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else {
+                //value is set to shape 1
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+            }
+          }
+          else {
+            if (grid[Y][X+1] === 0) {
+              //value can be set to 1, 2, 3 or 4
+              var randomSize = Math.floor((Math.random() * 4));
+              if (randomSize === 1) {
+                //value is set to shape 2
+                grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else if (randomSize === 2) {
+                //value is set to shape 3
+                grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else if (randomSize === 3) {
+                //value is set to 4
+                grid[Y+1][X+1] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+                grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else {
+                //value is set to 1
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+            }
+            else {
+              //value can be set to 1 or 3
+              if (randomSize === 1) {
+                //value is set to shape 3
+                grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+              else {
+                //value is set to shape 1
+                grid[Y][X] = String.fromCharCode(97 + linearPlace);
+              }
+            }
+          }
+          linearPlace++
+        }
+        else {
+          grid[Y][X] = grid[Y][X]
+        }
+      }
+    }
+    return (grid[0]+"<br>"+grid[1]+"<br>"+grid[2]+"<br>")
+  }
+
+  document.getElementById("answer1").innerHTML = layoutGeneratorNumberV();
+  document.getElementById("answer2").innerHTML = layoutGeneratorLetterV();
+  //document.getElementById("answer3").innerHTML = layoutGeneratorColourV();
+</script>
+<style>
+  * {
+    text-align: center;
+    font-size: 20px;
+    font-family: monospace;
+    margin: auto;
+  }
+  .button, .num {
+    color: chartreuse;
+    background-color: grey;
+    border: 5px solid dimgrey;
+    border-radius: 2px;
+  }
+  .button {
+    width: 500px;
+    height: 50px;
+  }
+  #btn1{
+    width: 288px;
+  }
+  .num {
+    width: 80px;
+    height: 38px;
+  }
+  #answer2wrapper {
+    background-color: black;
+    color: lawngreen;
+    width: 120px;
+    height: 75px;
+  }
+</style>
+</body>
+</html>

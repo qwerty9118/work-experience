@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing Lab</title>
+</head>
+<body>
+<template id="templateWidget">
+    <!-- ======================================================================= -->
+    <div>                         <!--html part-->
+    </div>
+    <!-- ======================================================================= -->
+    <script>                     //javascript part
+    </script>
+    <!-- ======================================================================= -->
+    <style>                         /*css part*/
+    </style>
+    <!-- ======================================================================= -->
+</template>
+
+<h1>filing system idea1</h1>
+<a>
+    categories are [arrays] of widgets<br>
+    widgets are {objects} in arrays<br><br>
+    categories: [<br>
+        catexamplename1: [<br>
+            { id: 1, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 2, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 4, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 10, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+        ]<br>
+        catexamplename2: [<br>
+            { id: 5, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 6, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 7, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 12, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            catexamplename4: [<br>
+                { id: 13, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+                { id: 14, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            ]<br>
+        ]<br>
+        catexamplename3: [<br>
+            { id: 3, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 8, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 9, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+            { id: 11, name: "exampleWidget", picture: "an image", contents: "?" }<br>
+        ]<br>
+    ]<br>
+</a>
+
+<h1>filing system idea2</h1>
+<a>
+    widgets: [<br>
+        { category: acategoryname , name: "exampleWidget", picture: "an image", contents: "???" }<br>
+        { category: acategoryname.asubcategoryname.etc , name: "exampleWidget", picture: "an image", contents: "???" }<br>
+    ]<br>
+</a>
+
+<h1>Widget variables:</h1>
+<ul>
+    <li>name - title/name of widget.</li>
+    <li>picture - an image to go next to the title, if there is one.</li>
+    <li>contents - could be anything from a clock, to a chart, to a tweet feed, to a timetable, to misc. reminders.</li>
+    <li>[optional] category - the (simulated) location of the widget</li>
+    <li>[optional] id - which widget it is</li>
+</ul>
+
+<br><br><br><br>
+<h1>TEST</h1>
+<a>in a grid of 5x3 there are </a><a id="answer1">placeholder</a><a> rectangles.</a><br>
+<a>However, in this grid there are </a><a id="answer2">placeholder</a><a> rectangles that are either 1x1, 1x2, or 2x1.</a><br>
+<a>Therefore, in a grid of 5x3 there are </a><a id="answer3">placeholder</a><a> different ways of combining 1x1, 1x2, and/or 2x1 rectangles so that they completely fill up the grid without overlapping at one time.</a><br>
+<script>
+    function rectCountInGrid(Base, Height) {
+        return ((Base * Height * (Base + 1) * (Height + 1)) / 4)
+    }
+    function rectOf1x1or1x2or2x1InGrid(Base, Height) {
+        return ((Base*Height)+((Base-1)*Height)+(Base*(Height-1)))
+    }
+    function sumComplexStuff(Base, Height) {
+        return "unfin"
+    }
+
+    document.getElementById("answer1").innerHTML = rectCountInGrid(5, 3)
+    document.getElementById("answer2").innerHTML = rectOf1x1or1x2or2x1InGrid(5, 3)
+    document.getElementById("answer3").innerHTML = sumComplexStuff(5, 3)
+</script>
+<br><br><br><br><br><br><br>
+
+</body>
+</html>

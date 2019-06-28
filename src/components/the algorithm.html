@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Algorithm</title>
+</head>
+<body>
+
+<h1>The Algorithm</h1>
+<p id="answer"></p>
+<div id="ansColour" style="display: grid;"></div>
+
+<script>
+/*
+0 = nothing - DO NOT GET CONFUSED
+
+1 = [#]
+
+2 = [#][#]
+
+3 = [#]
+    [#]
+	
+4 = [#][#]
+    [#][#]
+
+NOTE: this will need to be modified so that the probabilities are equal to the ratio of widget types - 
+if there are 2 2*2 widgets, they can't have an equal chance of appearing as the 20 1*1 widgets - 
+all the 2*2 widgets would be concentrated at the top left.
+
+
+things to do:
+@ see note above
+@ make so each block is an individual variable so can distinguish them eaier
+@ make it into some blocks of colour (the max amount of boxes is 15, so a list of 15 colours)
+
+
+things it can set:
+grid[Y+1][X+1] = String.fromCharCode(97 + linearPlace); on 4
+grid[Y][X+1] = String.fromCharCode(97 + linearPlace); on 4 and 2
+grid[Y+1][X] = String.fromCharCode(97 + linearPlace); on 4 and 3
+grid[Y][X] = String.fromCharCode(97 + linearPlace); on 4, 3, 2 and 1
+so it will always do [Y][X]
+
+function draw (type, letter) {
+  if (type === 4) {
+    grid[Y+1][X+1] = letter
+  }
+  else if (type === 3||4) {
+    grid[Y+1][X] = letter
+  }
+  else if (type === 2||4) {
+    grid[Y][X+1] = letter
+  }
+  grid[Y][X] = letter
+}
+
+do a thing right
+
+*/
+
+function layoutGenerator(xLength, yLength) {
+  var blockList = [];
+  var blockNameLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';//.charAt(0-51)
+  var blockNameIds = {firstDigit:"a", secondDigit:"a", thirdDigit:"a", fourthDigit:"a"};
+  var currentBlockName = "aaaa";
+  var grid = [];
+  var lineBreak = 0;
+  var columnBreak = 0;
+  for (var yI = 0; yI < yLength; yI++) {
+    grid.push([]);
+    lineBreak++;
+    columnBreak = 0;
+    for (var xI = 0; xI < xLength; xI++) {
+      grid[yI].push(0);
+      columnBreak++;
+    }
+  }
+  function drawBlock(blockType, blockName) {
+    if (blockType === 4) {
+      grid[Y+1][X+1] = blockName;
+    }
+    else if (blockType === 3||4) {
+      grid[Y+1][X] = blockName;
+    }
+    else if (blockType === 2||4) {
+      grid[Y][X+1] = blockName;
+    }
+    grid[Y][X] = blockName;
+    blockList[blockType].push(blockName);
+    console.log(blockList[blockType]);
+  }
+  function randomBlock(type2, type3, type4, blockName) {//randomBlock(0, 0, 0, 0, currentBlockName)
+    var totalCom = type2+type3+type4;
+    var randomSize = 1+Math.floor((Math.random() * totalCom));
+    if (totalCom === 3) {
+      drawBlock(randomSize, blockName);
+    }
+    else if (totalCom === 1) {
+      if (type3 === 1) {
+        if (randomSize === 2) {
+          randomSize = 3;
+        }
+        drawBlock(randomSize, blockName);
+      }
+      else {
+        drawBlock(randomSize, blockName);
+      }
+    }
+    else {
+      drawBlock(randomSize, blockName);
+    }
+  }
+  console.log(grid);
+  console.log(lineBreak+" "+columnBreak);
+	var linearPlace = 0;
+  var fourthDigit = 0;
+	var thirdDigit = 0;
+  var secondDigit = 0;
+  var firstDigit = 0;
+	for (var Y = 0; Y < grid.length; Y++) {
+		for (var X = 0; X < grid[0].length; X++) {
+			console.log("X: ", X, "   Y: ", Y, "   grid: ", grid, "   grid location value: ", grid[Y][X]);//-------------------------------------------------------------------
+			if (grid[Y][X] === 0) {
+				//if the value is not already occupied
+        if ((Y === lineBreak-1) && (X === columnBreak-1)) {
+					//value can only be shape 1, and is set to that.
+          grid[Y][X] = randomBlock(1, 0, 0, 0, currentBlockName);
+				}
+				else if ((Y === lineBreak-1) || (X === columnBreak-1)) {
+					//value can be 1, 2 or 3 depending on where it is
+					if (X === columnBreak-1) {
+						//value can only be 1 or 3
+						randomSize = Math.floor((Math.random() * 2));
+						if (randomSize === 1) {
+							//value is set to shape 3
+							grid[Y+1][X] = String.fromCharCode(97 + linearPlace);//---------------------------------- fail at 68, 96, 98, 103, 120 - [Y+1] not working unless yLength is set to 3 - because of sum dum shit
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else {
+							//value is set to shape 1
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+					}
+					else {
+						//value can only be 1 or 2
+						randomSize = Math.floor((Math.random() * 2));
+						if ((randomSize === 1) && (grid[Y][X+1] === 0)) {
+							//value is set to shape 2
+							grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else {
+							//value is set to shape 1
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+					}
+				}
+				else {
+					if (grid[Y][X+1] === 0) {
+						//value can be set to 1, 2, 3 or 4
+						randomSize = Math.floor((Math.random() * 4));
+						if (randomSize === 3) {
+              //value is set to 4
+              grid[Y+1][X+1] = String.fromCharCode(97 + linearPlace);
+              grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+              grid[Y+1][X] = String.fromCharCode(97 + linearPlace);
+              grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else if (randomSize === 2) {
+							//value is set to shape 3
+							grid[Y+1][X] = String.fromCharCode(97 + linearPlace);//----------------------------------
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else if (randomSize === 1) {
+              //value is set to shape 2
+              grid[Y][X+1] = String.fromCharCode(97 + linearPlace);
+              grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else {
+							//value is set to shape 1
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+					}
+					else {
+						//value can be set to 1 or 3
+						if (randomSize === 1) {
+							//value is set to shape 3
+							grid[Y+1][X] = String.fromCharCode(97 + linearPlace);//----------------------------------
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+						else {
+							//value is set to shape 1
+							grid[Y][X] = String.fromCharCode(97 + linearPlace);
+						}
+					}
+				}
+        if (fourthDigit === 52) {
+          if (thirdDigit === 52) {
+            if (secondDigit === 52) {
+              firstDigit++;
+              secondDigit = 0;
+            }
+            else {
+              secondDigit++;
+            }
+            thirdDigit = 0;
+          }
+          else {
+            thirdDigit++;
+          }
+          fourthDigit = 0;
+        }
+        else {
+          fourthDigit++;
+        }
+        blockNameIds.fourthDigit = blockNameLetters.charAt(fourthDigit);
+        blockNameIds.thirdDigit = blockNameLetters.charAt(thirdDigit);
+        blockNameIds.secondDigit = blockNameLetters.charAt(secondDigit);
+        blockNameIds.firstDigit = blockNameLetters.charAt(firstDigit);
+        currentBlockName = blockNameIds.firstDigit+""+blockNameIds.secondDigit+""+blockNameIds.thirdDigit+""+blockNameIds.fourthDigit;
+				linearPlace++;
+			}
+			else {
+				grid[Y][X] = grid[Y][X];
+			}
+		}
+	}
+	var algorithmMatrices = "";
+	for (var i = 0; i < lineBreak; i++) {
+	  algorithmMatrices += grid[i] + "<br>"
+  }
+	return (algorithmMatrices)
+}
+
+document.getElementById("answer").innerHTML = layoutGenerator(10, 10);
+</script>
+<style>
+  * {
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+  }
+</style>
+</body>
+</html>
