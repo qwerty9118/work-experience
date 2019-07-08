@@ -1,17 +1,26 @@
 <template>
-  
+  <div id="gridContainer"><span v-html="gridItems"></span></div>
 </template>
 
 <script>
   export default {
     name: 'TheAlgorithmLite2',
     data() {
-      return {}
+      return {
+        gridItems: "",
+        textGrid: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+      }
     },
     computed: {},
     methods: {
       layoutGenerator() {
+        this.gridItems = "";
+        this.textGrid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
       }
+    },
+    mounted() {
+      this.layoutGenerator();
+      setInterval(this.layoutGenerator, 600000)
     }
   }
 </script>
@@ -22,7 +31,7 @@
     overflow: hidden;
     margin: 0;
   }
-  .board {
+  #gridContainer {
     display: grid;
     /*cursor: none;*/
     grid-gap: 20px;
@@ -36,13 +45,13 @@
     height: 100vh;
     background-color: pink;
   }
-  .socket {
-    background-color: grey;
+  .gridItem {
+    //background-color: grey;
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-column-end: span 1;
-    grid-row-end: span 1;
+    //grid-column-end: span 1;
+    //grid-row-end: span 1;
   }
   .doubleX {grid-column-end: span 2 !important;}
   .doubleY {grid-row-end: span 2 !important;}
