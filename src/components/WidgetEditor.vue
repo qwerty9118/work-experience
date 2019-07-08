@@ -1,12 +1,12 @@
 <template>
   <div id="htmlbit" :class="htmlbitClasses">
-    <div @click="change2style()" v-if="goTopBar === 1" style="background-color: darkgreen;"></div>
+    <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: customColours.stylerColours.tertiary }"></div>
     <div class="styleCreator" v-else>
       <div>40</div>
       <div>60</div>
     </div>
 
-    <div @click="change2widget()" v-if="goBottomBar === 1" style="background-color: navy;"></div>
+    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: customColours.makerColours.tertiary }"></div>
     <div class="widgetCreator" v-else :style="{ backgroundColor: customColours.makerColours.tertiary }">
       <div id="addWidgetButton" class="unusedBlock" :style="{ backgroundColor: customColours.makerColours.tertiary }">
         <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">
@@ -38,7 +38,7 @@ export default {
           primary: "deepskyblue", secondary: "blue", tertiary: "navy", listbackground: "lightcyan", details: "black"
         },
         stylerColours: {
-          primary: "", secondary: "", tertiary: "", listbackground: "", details: ""
+          primary: "", secondary: "", tertiary: "darkgreen", listbackground: "palegreen", details: "black"
         }
       },
       htmlbitClasses: "htmlbit",
