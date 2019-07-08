@@ -38,7 +38,7 @@ export default {
           primary: "deepskyblue", secondary: "blue", tertiary: "navy", listbackground: "lightcyan", details: "black"
         },
         stylerColours: {
-          primary: "", secondary: "", tertiary: "darkgreen", listbackground: "palegreen", details: "black"
+          primary: "", secondary: "lime", tertiary: "green", listbackground: "palegreen", details: "black"
         }
       },
       htmlbitClasses: "htmlbit",
