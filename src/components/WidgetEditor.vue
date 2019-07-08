@@ -32,13 +32,13 @@ export default {
     return {
       customColours: {
         dashboardColours: {
-          widgetbackground: "", widgetsize1: "", widgetsize2: "", widgetsize3: "", widgetsize4: ""
+          widgetbackground: "white", widgetsize1: "aqua", widgetsize2: "orange", widgetsize3: "limegreen", widgetsize4: "grey"
         },
         makerColours: {
           primary: "deepskyblue", secondary: "blue", tertiary: "navy", listbackground: "lightcyan", details: "black"
         },
         stylerColours: {
-          primary: "", secondary: "lime", tertiary: "green", listbackground: "palegreen", details: "black"
+          primary: "#BFFF00", secondary: "lime", tertiary: "green", listbackground: "#FFFFE0", details: "black"
         }
       },
       htmlbitClasses: "htmlbit",
