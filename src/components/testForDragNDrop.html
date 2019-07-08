@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"> 
+<head>
+<meta charset="utf-8"/>
+<title></title>
+</head>
+<body>
+
+<div id="htmlbit" class="htmlbit">
+
+<div id="widgetCreator" class="unusedBlock">
+<div id="unusedWidgetsTitle" class="listTitle">Unused Widgets</div>
+<div id="unusedWidgets" class="widgetList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<input type="button" id="createWidget" value="Create New Widget" class="addNew">
+</div>
+
+<div id="usedWidgets" class="usedBlock">
+<div id="size1Title" class="listTitle">1x1</div>
+<div id="size2Title" class="listTitle">2x1</div>
+<div id="size3Title" class="listTitle">1x2</div>
+<div id="size4Title" class="listTitle">2x2</div>
+
+<div id="size1" class="widgetList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="size2" class="widgetList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="size3" class="widgetList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="size4" class="widgetList" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+</div>
+
+<script>
+var items = [
+  '<img id="drag0" class="dragImg" src="exampleImages/logos/vuejs.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag1" class="dragImg" src="exampleImages/logos/codepen.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag2" class="dragImg" src="exampleImages/logos/css.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag3" class="dragImg" src="exampleImages/logos/git.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag4" class="dragImg" src="exampleImages/logos/github.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag5" class="dragImg" src="exampleImages/logos/html5.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag6" class="dragImg" src="exampleImages/logos/javascript.jpg" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag7" class="dragImg" src="exampleImages/logos/nodejs.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag8" class="dragImg" src="exampleImages/logos/notepad++.png" draggable="true" ondragstart="drag(event)">',
+  '<img id="drag9" class="dragImg" src="exampleImages/logos/phpstorm.png" draggable="true" ondragstart="drag(event)">',
+]
+for (var i = 0; i < items.length; i++) {
+  document.getElementById("unusedWidgets").innerHTML += items[i]
+}
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  if (ev.target.tagName == "DIV") {
+  	ev.target.appendChild(document.getElementById(data));
+  }
+  else if (ev.target.parentElement.tagName == "DIV") {
+  	ev.target.parentElement.appendChild(document.getElementById(data));
+  }
+}
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  overflow:hidden;
+}
+.htmlbit {
+  height: 100vh;
+  display: grid;
+  grid-gap: 0px;
+  padding: 0px;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 100%;
+}
+.unusedBlock {
+  background-color: navy;
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+  grid-template-columns: 100%;
+  grid-template-rows: calc(10% - 5px) calc(80% - 10px) calc(10% - 5px);
+}
+.usedBlock {
+  background-color: blue;
+  display: grid;
+  grid-gap: 10px;
+  padding: 10px;
+  grid-template-columns: calc(25% - 7px) calc(25% - 8px) calc(25% - 8px) calc(25% - 7px);
+  grid-template-rows: calc(10% - 5px) calc(90% - 5px);
+}
+.addNew {
+  background-color: darkblue;
+}
+.widgetList {
+  background-color: lightcyan;
+  display: inline-block;
+  overflow: auto;
+  text-align: center;/*
+  padding-top: 5px;*/
+}
+.listTitle {
+  background-color: pink;
+  color: red;
+  text-align: center;
+}
+.dragImg {
+  border: 2px solid black;
+  width: 45%;
+  margin: 2px 4px 0px 4px;
+}/*
+@media only screen and (max-width: calc(screen-width / 2)) {
+  .dragImg {
+    width: 10%;
+  }
+}*/
+</style>
+
+</body>
+</html>

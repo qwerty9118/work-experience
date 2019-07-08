@@ -10,21 +10,21 @@
   </div>
 </template>
 <script>
-//import HelloWorld from './components/HelloWorld.vue'
-//import ExampleIFrameNWidgets from './components/ExampleIFrameNWidgets.vue'
-import DashboardLayout from './components/DashboardLayout.vue'
-import WidgetMaker from "./components/WidgetMaker";
+// import HelloWorld from './tempRedundant/HelloWorld.vue'
+// import ExampleIFrameNWidgets from './tempRedundant/ExampleIFrameNWidgets.vue'
+import DashboardLayout from './tempRedundant/DashboardLayout.vue'
+import WidgetMaker from './tempRedundant/WidgetMaker'
 export default {
   name: 'app',
-  data() {
+  data () {
     return {
       settings: false
     }
   },
   components: {
     WidgetMaker,
-    //HelloWorld,
-    //ExampleIFrameNWidgets
+    // HelloWorld,
+    // ExampleIFrameNWidgets
     DashboardLayout
   }
 }
