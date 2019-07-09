@@ -5,6 +5,9 @@
 <script>
   export default {
     name: 'TheAlgorithmLite2',
+    props: {
+      JSONString: String
+    },
     data() {
       return {
         gridItems: "",
@@ -13,9 +16,25 @@
     },
     computed: {},
     methods: {
+      drawFill(size, locationX, locationY) {
+        if(size == 1) {
+          this.textGrid[locationY][locationX] = 1;
+        } else if(size == 2) {
+          this.textGrid[locationY][locationX] = 1;
+          this.textGrid[locationY][locationX + 1] = 1;
+        } else if(size == 3) {
+          this.textGrid[locationY][locationX] = 1;
+          this.textGrid[locationY + 1][locationX] = 1;
+        } else if(size == 4) {
+          this.textGrid[locationY][locationX] = 1;
+          this.textGrid[locationY][locationX + 1] = 1;
+          this.textGrid[locationY + 1][locationX] = 1;
+          this.textGrid[locationY + 1][locationX + 1] = 1;
+        }
+      },
       layoutGenerator() {
         this.gridItems = "";
-        this.textGrid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+        this.textGrid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
       }
     },
     mounted() {

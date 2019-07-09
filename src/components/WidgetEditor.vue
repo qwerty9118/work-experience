@@ -2,8 +2,11 @@
   <div id="htmlbit" :class="htmlbitClasses">
     <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: customColours.stylerColours.tertiary }"></div>
     <div class="styleCreator" v-else>
-      <div>40</div>
-      <div>60</div>
+      <div>
+        40
+        <input type="button" value="click to set json" @click="setJSON()">
+        {{ JSONholder }}
+      </div>
     </div>
 
     <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: customColours.makerColours.tertiary }"></div>
@@ -28,6 +31,9 @@
 <script>
 export default {
   name: 'WidgetEditor',
+  props: {
+    JSONString: String
+  },
   data () {
     return {
       customColours: {
@@ -43,12 +49,18 @@ export default {
       },
       htmlbitClasses: "htmlbit",
       goTopBar: 1,
-      goBottomBar: 0
+      goBottomBar: 0,
+      JSONholder: ""
     }
   },
   computed: {
   },
   methods: {
+    setJSON() {
+      this.JSONholder = JSON.stringify(this.customColours);
+      localStorage.setItem("styleData", this.JSONholder);
+      this.$emit('reloadStyles');
+    },
     topBarTo1() {
       this.goTopBar = 1;
     },
