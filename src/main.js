@@ -1,13 +1,22 @@
 import Vue from 'vue'
-// import App from './components/App.vue'
+import Vuex from 'vuex'
 import DashApp from './DashApp.vue'
-//import "./index.js"
-
-
 const config = require('./styleData.json');
 
 Vue.config.productionTip = false;
 
+
+Vue.use(Vuex);
+
+
+const store = new Vuex.Store({
+  state: {
+    config
+  }
+});
+
+
 new Vue({
+  store,
   render: h => h(DashApp),
 }).$mount('#app');

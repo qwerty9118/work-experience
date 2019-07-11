@@ -1,3 +1,28 @@
 {
-  "hello": "world"
+  "hello": "world",
+  "cols": {
+    "col": {
+      "dshbrdCol": {
+        "bkgnd": "white",
+        "siz1": "aqua",
+        "siz2": "orange",
+        "siz3": "limegreen",
+        "siz4": "grey"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "detail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "detail": "black"
+      }
+    }
+  }
 }

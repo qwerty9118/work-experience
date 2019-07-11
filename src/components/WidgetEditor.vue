@@ -1,28 +1,97 @@
 <template>
   <div id="htmlbit" :class="htmlbitClasses">
-    <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: customColours.stylerColours.tertiary }"></div>
+    <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.col.stylrCol.tert }"></div>
     <div class="styleCreator" v-else>
-      <div>
-        40
-        <input type="button" value="click to set json" @click="setJSON()">
-        {{ JSONholder }}
+      <div id="optionsForStyle">
+        <!-- colour wheel and colour rrggbb inputs for each colour, name of style -->
+        <div id="stylColPickGrid">
+          <div id="stylColPickDshbrd">
+            <label class="switch">
+              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPick">
+              <span class="slider"></span>
+            </label>
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
+          </div>
+          <div id="stylColPickMkr">
+            <label class="switch">
+              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPick">
+              <span class="slider"></span>
+            </label>
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" @change="">
+          </div>
+          <div id="stylColPickStylr">
+            <label class="switch">
+              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPick">
+              <span class="slider"></span>
+            </label>
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" @change="">
+            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" @change="">
+          </div>
+        </div>
+
+      </div>
+      <div id="previewOfStyle">
+        <!-- square x 3 with examples of colours -->
+      </div>
+      <div id="savedStylesOptions">
+        <!-- only 1 style, or all selected styles on randomised, select all button, how often to change style(minutes, hours, days) -->
+        <input type="number" :style="{  }" value="" name="" v-model.number="">
+        <select id="timeUnitSelect" :style="{  }"  v-model="">
+          <option :style="{  }">Minutes</option>
+          <option :style="{  }">Hours</option>
+          <option :style="{  }">Days</option>
+        </select>
+        <input type="radio" id="one" :style="{  }" value="" name="oneOrAllStyles" v-model="">
+        <label for="one">One style</label>
+        <input type="radio" id="many" :style="{  }" value="" name="oneOrAllStyles" v-model="">
+        <label for="many">All checked styles</label>
+        <input type="checkbox" :style="{  }" value="" name="" v-model="">
+      </div>
+      <div id="savedStyles">
+        <!-- list of all saved styles - name, 5 widget colours, selected or not, delete. -->
+        <ul>
+          <li v-for="(style, index) in this.$store.state.config.cols">
+            {{ style.name }}
+            <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.bkgnd }"></div>
+            <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz1 }"></div>
+            <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz2 }"></div>
+            <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz3 }"></div>
+            <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz4 }"></div>
+            <input type="checkbox" class="" :style="{  }" value="" name="">
+            <input type="button" class="deleteSavedStyleButton" :style="{  }" value="X" name="">
+          </li>
+        </ul>
+      </div>
+      <div id="saveAndRefresh">
+        <!-- does what it says on the package. -->
       </div>
     </div>
 
-    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: customColours.makerColours.tertiary }"></div>
-    <div class="widgetCreator" v-else :style="{ backgroundColor: customColours.makerColours.tertiary }">
-      <div id="addWidgetButton" class="unusedBlock" :style="{ backgroundColor: customColours.makerColours.tertiary }">
-        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">
+    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }"></div>
+    <div class="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
+      <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
+        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">
       </div>
-      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: customColours.makerColours.secondary, color: customColours.makerColours.details }">
-        <div id="size1Title" class="listTitle" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">1x1</div>
-        <div id="size2Title" class="listTitle" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">2x1</div>
-        <div id="size3Title" class="listTitle" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">1x2</div>
-        <div id="size4Title" class="listTitle" :style="{ backgroundColor: customColours.makerColours.primary, color: customColours.makerColours.details }">2x2</div>
-        <div id="size1" class="widgetList" :style="{ backgroundColor: customColours.makerColours.listbackground }"></div>
-        <div id="size2" class="widgetList" :style="{ backgroundColor: customColours.makerColours.listbackground }"></div>
-        <div id="size3" class="widgetList" :style="{ backgroundColor: customColours.makerColours.listbackground }"></div>
-        <div id="size4" class="widgetList" :style="{ backgroundColor: customColours.makerColours.listbackground }"></div>
+      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.seco, color: this.$store.state.config.cols.col.mkrCol.detail }">
+        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">1x1</div>
+        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">2x1</div>
+        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">1x2</div>
+        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">2x2</div>
+        <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
+        <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
+        <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
+        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div><!-- i am aware that this looks awful -->
       </div>
     </div>
   </div>
@@ -31,36 +100,44 @@
 <script>
 export default {
   name: 'WidgetEditor',
-  props: {
-    JSONString: String
-  },
   data () {
     return {
-      customColours: {
-        dashboardColours: {
-          widgetbackground: "white", widgetsize1: "aqua", widgetsize2: "orange", widgetsize3: "limegreen", widgetsize4: "grey"
-        },
-        makerColours: {
-          primary: "deepskyblue", secondary: "blue", tertiary: "navy", listbackground: "lightcyan", details: "black"
-        },
-        stylerColours: {
-          primary: "#BFFF00", secondary: "lime", tertiary: "green", listbackground: "#FFFFE0", details: "black"
-        }
-      },
       htmlbitClasses: "htmlbit",
       goTopBar: 1,
       goBottomBar: 0,
-      JSONholder: ""
+      modelValues: {
+        optionsForStyle: {
+          stylColPickDshbrd: {
+            nameOrColPick: "",
+            valueA: "",
+            valueB: "",
+            valueC: "",
+            valueD: "",
+            valueE: ""
+          },
+          stylColPickMkr: {
+            nameOrColPick: "",
+            valueA: "",
+            valueB: "",
+            valueC: "",
+            valueD: "",
+            valueE: ""
+          },
+          stylColPickStylr: {
+            nameOrColPick: "",
+            valueA: "",
+            valueB: "",
+            valueC: "",
+            valueD: "",
+            valueE: ""
+          }
+        }
+      }
     }
   },
   computed: {
   },
   methods: {
-    setJSON() {
-      this.JSONholder = JSON.stringify(this.customColours);
-      localStorage.setItem("styleData", this.JSONholder);
-      this.$emit('reloadStyles');
-    },
     topBarTo1() {
       this.goTopBar = 1;
     },
@@ -111,8 +188,15 @@ for (var i = 0; i < items.length; i++) {
     display: grid;
     grid-gap: 0px;
     padding: 0px;
+    grid-template-columns: 45% 45% 10%;
+    grid-template-rows: 50% 50%;
+  }
+  .addStyleContainer {
+    display: grid;
+    grid-gap: 10px;
+    padding: 10px;
     grid-template-columns: 100%;
-    grid-template-rows: 100%;
+    grid-template-rows: calc(100% - 5px);
   }
   .widgetCreator {
     display: grid;
@@ -121,7 +205,7 @@ for (var i = 0; i < items.length; i++) {
     grid-template-columns: 10% 90%;
     grid-template-rows: 100%;
   }
-  .unusedBlock {
+  .addNewContainer {
     display: grid;
     grid-gap: 10px;
     padding: 10px;
@@ -154,6 +238,66 @@ for (var i = 0; i < items.length; i++) {
     border: 2px solid black;
     width: 90%;
     margin: 2px 4px 0px 4px;
+  }
+
+
+
+
+
+
+
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+
+  .nameOrColPick:checked + .slider {
+    background-color: #2196F3;
+  }
+
+  .nameOrColPick:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+
+  .nameOrColPick:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
 </style>
 
