@@ -4,59 +4,90 @@
     <div class="styleCreator" v-else>
       <div id="optionsForStyle">
         <!-- colour wheel and colour rrggbb inputs for each colour, name of style -->
+        <input v-model="modelValues.optionsForStyle.nameOfStyl" placeholder="Name of your style">
         <div id="stylColPickGrid">
           <div id="stylColPickDshbrd">
-            <label class="switch">
-              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPick">
-              <span class="slider"></span>
-            </label>
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
           </div>
           <div id="stylColPickMkr">
-            <label class="switch">
-              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPick">
-              <span class="slider"></span>
-            </label>
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" @change="">
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickB"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB" placeholder="CSS colour name" >
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickC"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" placeholder="CSS colour name" >
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickD"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" placeholder="CSS colour name" >
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS colour name" >
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE">
           </div>
           <div id="stylColPickStylr">
-            <label class="switch">
-              <input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPick">
-              <span class="slider"></span>
-            </label>
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" @change="">
-            <input :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS colour name"><input type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" @change="">
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickB"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickC"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickD"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD">
+
+            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS colour name">
+            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE">
           </div>
         </div>
-
       </div>
       <div id="previewOfStyle">
         <!-- square x 3 with examples of colours -->
       </div>
       <div id="savedStylesOptions">
-        <!-- only 1 style, or all selected styles on randomised, select all button, how often to change style(minutes, hours, days) -->
-        <input type="number" :style="{  }" value="" name="" v-model.number="">
-        <select id="timeUnitSelect" :style="{  }"  v-model="">
+        <!-- 1 style or all selected styles on loop, select all button, how often to change style(minutes, hours, days) -->
+        <input type="number" :style="{  }" value="" name="" v-model.number="modelValues.savedStylesOptions.unitMultiplier">
+        <select id="timeUnitSelect" :style="{  }"  v-model="modelValues.savedStylesOptions.unitOfTime">
           <option :style="{  }">Minutes</option>
           <option :style="{  }">Hours</option>
           <option :style="{  }">Days</option>
         </select>
-        <input type="radio" id="one" :style="{  }" value="" name="oneOrAllStyles" v-model="">
+        <input type="radio" id="one" :style="{  }" value="one" name="oneOrManyStyles" v-model="modelValues.savedStylesOptions.oneOrManyStyles">
         <label for="one">One style</label>
-        <input type="radio" id="many" :style="{  }" value="" name="oneOrAllStyles" v-model="">
+        <input type="radio" id="many" :style="{  }" value="many" name="oneOrManyStyles" v-model="modelValues.savedStylesOptions.oneOrManyStyles">
         <label for="many">All checked styles</label>
-        <input type="checkbox" :style="{  }" value="" name="" v-model="">
+        <input type="checkbox" id="toggleAll" :style="{  }" value="" name="" v-model="modelValues.savedStylesOptions.toggleAllVar" @click="toggleAllFunc()">
+        <label for="toggleAll"></label>
       </div>
       <div id="savedStyles">
         <!-- list of all saved styles - name, 5 widget colours, selected or not, delete. -->
@@ -81,13 +112,13 @@
     <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }"></div>
     <div class="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
       <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
-        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">
+        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">
       </div>
-      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.seco, color: this.$store.state.config.cols.col.mkrCol.detail }">
-        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">1x1</div>
-        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">2x1</div>
-        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">1x2</div>
-        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.detail }">2x2</div>
+      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.seco, color: this.$store.state.config.cols.col.mkrCol.dtail }">
+        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">1x1</div>
+        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">2x1</div>
+        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">1x2</div>
+        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">2x2</div>
         <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
         <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
         <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
@@ -106,30 +137,53 @@ export default {
       goTopBar: 1,
       goBottomBar: 0,
       modelValues: {
+        previewOfStyle: {},
+        savedStylesOptions: {
+          unitMultiplier: "",
+          unitOfTime: "",
+          oneOrManyStyles: "",
+          toggleAllVar: "",
+        },
+        savedStyles: {
+          selectAll: false,
+        },
         optionsForStyle: {
+          nameOfStyl: "",
           stylColPickDshbrd: {
-            nameOrColPick: "",
+            nameOrColPickA: "",
+            nameOrColPickB: "",
+            nameOrColPickC: "",
+            nameOrColPickD: "",
+            nameOrColPickE: "",
             valueA: "",
             valueB: "",
             valueC: "",
             valueD: "",
-            valueE: ""
+            valueE: "",
           },
           stylColPickMkr: {
             nameOrColPick: "",
+            nameOrColPickB: "",
+            nameOrColPickC: "",
+            nameOrColPickD: "",
+            nameOrColPickE: "",
             valueA: "",
             valueB: "",
             valueC: "",
             valueD: "",
-            valueE: ""
+            valueE: "",
           },
           stylColPickStylr: {
             nameOrColPick: "",
+            nameOrColPickB: "",
+            nameOrColPickC: "",
+            nameOrColPickD: "",
+            nameOrColPickE: "",
             valueA: "",
             valueB: "",
             valueC: "",
             valueD: "",
-            valueE: ""
+            valueE: "",
           }
         }
       }
@@ -138,6 +192,10 @@ export default {
   computed: {
   },
   methods: {
+    toggleAllFunc() {
+      if(this.modelValues.savedStylesOptions.toggleAllVar == false){this.modelValues.savedStyles.selectAll = false}else{this.modelValues.savedStyles.selectAll = true};
+      for(; ; )
+    },
     topBarTo1() {
       this.goTopBar = 1;
     },

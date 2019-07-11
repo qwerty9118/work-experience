@@ -14,14 +14,14 @@
         "prim": "deepskyblue",
         "seco": "blue",
         "tert": "navy",
-        "detail": "black"
+        "dtail": "black"
       },
       "stylrCol": {
         "bkgnd": "#FFFFE0",
         "prim": "#BFFF00",
         "seco": "lime",
         "tert": "green",
-        "detail": "black"
+        "dtail": "black"
       }
     }
   }
