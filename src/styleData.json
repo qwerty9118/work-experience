@@ -2,6 +2,7 @@
   "hello": "world",
   "cols": {
     "col": {
+      "colName": "Default Style",
       "dshbrdCol": {
         "bkgnd": "white",
         "siz1": "aqua",
