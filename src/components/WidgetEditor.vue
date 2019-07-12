@@ -99,7 +99,7 @@
             <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz2 }"></div>
             <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz3 }"></div>
             <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols['col--${index}'].dshbrdCol.siz4 }"></div>
-            <input type="checkbox" class="" :style="{  }" value="" name="">
+            <input type="checkbox" class="" :style="{  }" :value="['check--${index}']" v-model="modelValues.savedStyles.checkedBoxes">
             <input type="button" class="deleteSavedStyleButton" :style="{  }" value="X" name="">
           </li>
         </ul>
@@ -146,6 +146,7 @@ export default {
         },
         savedStyles: {
           selectAll: false,
+          checkedBoxes: [],
         },
         optionsForStyle: {
           nameOfStyl: "",
@@ -193,9 +194,10 @@ export default {
   },
   methods: {
     toggleAllFunc() {
-      if(this.modelValues.savedStylesOptions.toggleAllVar == false){this.modelValues.savedStyles.selectAll = false}else{this.modelValues.savedStyles.selectAll = true};
-      for(; ; )
-    },
+      if(this.modelValues.savedStylesOptions.toggleAllVar == false){this.modelValues.savedStyles.selectAll = false}else{this.modelValues.savedStyles.selectAll = true}
+      for(var select = 0; select < this.$store.state.config.cols.length; select++){
+
+      }},
     topBarTo1() {
       this.goTopBar = 1;
     },
