@@ -79,7 +79,13 @@
           <div class="previewGridDashItem previewGridDashItem3" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickDshbrd.valueD }">3</div>
           <div class="previewGridDashItem previewGridDashItem2" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickDshbrd.valueE }">2</div>
         </div>
-        <div class="previewGridWidg"></div>
+        <div class="previewGridWidg" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueC }">
+          <!-- HERE!! ============================================================================================================================================================================= -->
+          <button class="previewGridWidgBtn" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueD }" @click="addPic()">Add New</button>
+          <div class="previewGridWidgTitl" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueC }">1x1</div>
+          <div class="previewGridWidgList" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueA, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueC }" id="nonVuePics"></div>
+          <!-- HERE!! ============================================================================================================================================================================= -->
+        </div>
         <div class="previewGridStyl"></div>
       </div>
       <div id="savedStylesOptions">
@@ -107,10 +113,10 @@
               <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz3 }"></div>
               <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz4 }"></div>
             </div>
-            <input v-if="!modelValues.savedStylesOptions.oneOrManyStyles" type="radio" class="" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedRadio">
-            <input v-else type="checkbox" class="" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedBoxes">
+            <input v-if="!modelValues.savedStylesOptions.oneOrManyStyles" type="radio" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedRadio">
+            <input v-else type="checkbox" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedBoxes">
           </li>
-          <li v-for="(style, index) in deletableStyles" :key="style.colName">
+          <li v-for="(style, index) in deletableStyles" :key="index+style.colName">
             <p>{{ style.colName }}: </p>
             <div class="savedStyleExampleBoxGrid">
               <div class="savedStyleExampleBox" :style="{ backgroundColor: style.dshbrdCol.bkgnd }"></div>
@@ -119,9 +125,9 @@
               <div class="savedStyleExampleBox" :style="{ backgroundColor: style.dshbrdCol.siz3 }"></div>
               <div class="savedStyleExampleBox" :style="{ backgroundColor: style.dshbrdCol.siz4 }"></div>
             </div>
-            <input v-if="!modelValues.savedStylesOptions.oneOrManyStyles" type="radio" class="" :style="{  }" :value="modelValues.savedStyles.savedStyleValues['check--${index}']" v-model="modelValues.savedStyles.checkedRadio">
-            <input v-else type="checkbox" class="" :style="{  }" :value="modelValues.savedStyles.savedStyleValues['check--${index}']" v-model="modelValues.savedStyles.checkedBoxes">
-            <input type="button" class="deleteSavedStyleButton" :style="{  }" value="X" name="">
+            <input v-if="!modelValues.savedStylesOptions.oneOrManyStyles" type="radio" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues['check--${index}']" v-model="modelValues.savedStyles.checkedRadio">
+            <input v-else type="checkbox" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues['check--${index}']" v-model="modelValues.savedStyles.checkedBoxes">
+            <input type="button" class="deleteSavedStyle" :style="{  }" value="X" name="">
           </li>
         </ul>
       </div>
@@ -163,6 +169,9 @@ export default {
       goBottomBar: 0,
       modelValues: {
         previewOfStyle: {},
+        previewOfWidg: {
+          exampleList: [],
+        },
         savedStylesOptions: {
           unitMultiplier: "",
           unitOfTime: "",
@@ -235,6 +244,40 @@ export default {
     }
   },
   methods: {
+    addPic(){
+      switch(Math.floor(Math.random() * 10)){
+        case 0:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/codepen.png' alt='404 or something'>";
+          break;
+        case 1:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/css.png' alt='404 or something'>";
+          break;
+        case 2:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/git.png' alt='404 or something'>";
+          break;
+        case 3:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/github.png' alt='404 or something'>";
+          break;
+        case 4:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/html5.png' alt='404 or something'>";
+          break;
+        case 5:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/javascript.jpg' alt='404 or something'>";
+          break;
+        case 6:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/nodejs.png' alt='404 or something'>";
+          break;
+        case 7:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/notepad++.png' alt='404 or something'>";
+          break;
+        case 8:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/phpstorm.png' alt='404 or something'>";
+          break;
+        case 9:
+          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/vue.js' alt='404 or something'>";
+          break;
+      }
+    },
     saveChangesAndRefresh() {},
     addNewStyle() {
       this.saveChangesAndRefresh();
@@ -273,18 +316,11 @@ export default {
     this.modelValues.savedStyles.savedStyleValues.checkDefault = "checkDefault";
   },
 }
-
-/*
-for (var i = 0; i < items.length; i++) {
-  document.getElementById("unusedWidgets").innerHTML += items[i]
-}
-*/
 </script>
 
+
+<!-- Default colours are placed in here, for example as "background-color", and custom, dynamic colours are done with the vue.js computed property. always the computed property. -->
 <style scoped>
-  :root {
-    --dash-bg: ;
-  }
   * {
     box-size: border-box;
     display: inline;
@@ -310,7 +346,7 @@ for (var i = 0; i < items.length; i++) {
     grid-gap: 0px;
     padding: 0px;
     grid-template-columns: auto auto;
-    grid-template-rows: auto;
+    grid-template-rows: auto auto auto;
   }
   .addStyleContainer {
     display: grid;
@@ -323,8 +359,8 @@ for (var i = 0; i < items.length; i++) {
     display: grid;
     grid-gap: 0px;
     padding: 0px;
-    grid-template-columns: auto auto auto;
-    grid-template-rows: auto;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-template-rows: 100%;
     height: 100px;
     width: 300px;
   }
@@ -356,21 +392,27 @@ for (var i = 0; i < items.length; i++) {
   }
   .previewGridWidg {
     display: grid;
-    grid-gap: 5px;
-    padding: 5px;
-    grid-template-columns: auto;
-    grid-template-rows: auto 60% auto;
-    height: 100%;
-    width: 100%;
+    grid-gap: 0px;
+    padding: 0px;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 80%;
+  }
+  .previewGridWidgBtn {
+    grid-row: span 2;
+    border: 5px solid;
+  }
+  .previewGridWidgTitl {
+    border: 5px solid;
+  }
+  .previewGridWidgList {
+    border: 5px solid;
   }
   .previewGridStyl {
     display: grid;
-    grid-gap: 0px;
-    padding: 0px;
+    grid-gap: 5px;
+    padding: 5px;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    height: 100%;
-    width: 100%;
   }
   .widgetCreator {
     display: grid;
@@ -415,34 +457,32 @@ for (var i = 0; i < items.length; i++) {
   }
   #stylColPickGrid {
     display: grid;
-    grid-template-columns: calc();
-    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: 100px;
+    grid-template-rows: 34px 34px 34px;
   }
-  #stylColPickDshbrd {
+  #stylColPickGrid div {
     display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: auto;
+    grid-template-columns: repeat(10, 60px 100px);
+    grid-template-rows: 34px;
   }
-  #stylColPickMkr {
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: auto;
+  #stylColPickGrid input[type="checkbox"] {
+    height: 34px;
+    width: 60px;
   }
-  #stylColPickStylr {
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: auto;
-  }
-  #stylColPickGrid input {
+  #stylColPickGrid input[type="color"], #stylColPickGrid input[type="text"] {
     height: 34px;
     width: 100px;
-    /*position: relative;*/
+  }
+  .savedStyleExampleBox {
+    border: 1px solid black;
+    height: 10px;
+    width: 10px;
+    border-radius: 3px;
   }
 
 
 
-
-
+  /*<label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA"><span class="slider"></span></label>*/
 
 
 
@@ -466,7 +506,7 @@ for (var i = 0; i < items.length; i++) {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #ccc; /* ------------------------------------------------------------------------------------------------------------------ */
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 34px;
@@ -479,18 +519,18 @@ for (var i = 0; i < items.length; i++) {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: white; /* ------------------------------------------------------------------------------------------------------------------ */
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
   }
 
   .nameOrColPick:checked + .slider {
-    background-color: #2196F3;
+    background-color: #2196F3; /* ------------------------------------------------------------------------------------------------------------------ */
   }
 
   .nameOrColPick:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #2196F3; /* ------------------------------------------------------------------------------------------------------------------ */
   }
 
   .nameOrColPick:checked + .slider:before {

@@ -1,5 +1,7 @@
 <template>
-  <div id="gridContainer"><span v-html="gridItems"></span></div>
+  <div id="gridContainer">
+    <div v-for="(item, index) in dashBricksData" :key="index"><span v-html="item.insideCode"></span></div>
+  </div>
 </template>
 
 <script>
@@ -7,37 +9,45 @@ export default {
   name: 'TheAlgorithmLite2',
   data() {
     return {
-      gridItems: "",
-      textGrid: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]]
+      /* data properties have the -Data postfix */
+      gridItemsData: "",
+      textGridData: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],
+      dashBricksData: "",
     }
   },
-  computed: {},
+  computed: {
+    /* computed properties have the -Calc postfix */
+    randomSizeCalc(){}
+  },
   methods: {
-    drawFill(size, locationX, locationY) {
-      if(size == 1) {
-        this.textGrid[locationY][locationX] = 1;
-        this.gridItems += '<div id="' + '???' + '" class="' + '???' + '"></div>';
-      } else if(size == 2) {
-        this.textGrid[locationY][locationX] = 1;
-        this.textGrid[locationY][locationX + 1] = 1;
-      } else if(size == 3) {
-        this.textGrid[locationY][locationX] = 1;
-        this.textGrid[locationY + 1][locationX] = 1;
-      } else if(size == 4) {
-        this.textGrid[locationY][locationX] = 1;
-        this.textGrid[locationY][locationX + 1] = 1;
-        this.textGrid[locationY + 1][locationX] = 1;
-        this.textGrid[locationY + 1][locationX + 1] = 1;
+    /* methods have the -Func postfix */
+    drawFillFunc(size, locationX, locationY) {
+      switch(size) {
+        case 4:
+          this.textGridData[locationY + 1][locationX + 1] = 1;
+        case 4:
+        case 2:
+          this.textGridData[locationY + 1][locationX] = 1;
+        case 4:
+        case 2:
+          this.textGridData[locationY][locationX + 1] = 1;
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+          this.textGridData[locationY][locationX] = 1;
+        default:
+          console.error("FUCK")
       }
     },
-    layoutGenerator() {
+    layoutGeneratorFunc() {
       this.gridItems = "";
       this.textGrid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
     }
   },
   mounted() {
     this.layoutGenerator();
-    setInterval(this.layoutGenerator, 600000)
+    setInterval(this.layoutGeneratorFunc, 600000)
   }
 }
 </script>
