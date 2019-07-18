@@ -1,5 +1,7 @@
 {
   "hello": "world",
+  "array format for cols": ["colvalue", "image", "imagerepeat", "imageposition", "borderwidth(top, right, bottom, left)", "borderstyl(top, right, bottom, left)", "bordercol(top, right, bottom, left)", "roundedcorners(topleft, topright, bottomright, bottomleft)"],
+  "notes": "all colours should be in the format of one of the following: css colour name, hexadecimal, rgba or hsla, and MUST NOT BE rgb or hsl.",
   "cols": {
     "col": {
       "colName": "Default Style",
@@ -23,7 +25,18 @@
         "seco": "lime",
         "tert": "green",
         "dtail": "black"
+      },
+      "advancedashboardCol": {
+        "borders": {},
+        "morCol": {
+          "examplecol1": {
+            "id": "xtra1",
+            "appliesTo": ["widgetid1", "widgetid2", "widgetclass1", "etc..."],
+            "colVal": "peachteal"
+          }
+        }
       }
     }
   }
 }
+

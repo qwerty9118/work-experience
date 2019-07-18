@@ -32,39 +32,39 @@
           <div v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" id="stylColPickDshbrdAdvanced">
             <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapVar">
             <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapUnit">
-              <option value="px">pixels</option>
-              <option value="%">percent</option>
-              <option value="cm">centimetres</option>
-              <option value="mm">millimetres</option>
-              <option value="in">inches</option>
-              <option value="pt">points (1/72 of an inch)</option>
-              <option value="pc">picas (12 times points)</option>
-              <option value="em">relative to font size</option>
-              <option value="vw">relative to 1% of the width of the viewport</option>
-              <option value="vh">relative to 1% of the height of the viewport</option>
-              <option value="vmin">relative to 1% of the viewport's larger dimension</option>
-              <option value="vmax">relative to 1% of the viewport's smaller dimension</option>
-              <option value="rem">relative to the font size of the root element</option>
-              <option value="ch">relative to the width of "0"</option>
-              <option value="ex">relative to the x-height of the font</option>
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
             </select>
             <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingVar">
             <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingUnit">
-              <option value="px">pixels</option>
-              <option value="%">percent</option>
-              <option value="cm">centimetres</option>
-              <option value="mm">millimetres</option>
-              <option value="in">inches</option>
-              <option value="pt">points (1/72 of an inch)</option>
-              <option value="pc">picas (12 times points)</option>
-              <option value="em">relative to font size</option>
-              <option value="vw">relative to 1% of the width of the viewport</option>
-              <option value="vh">relative to 1% of the height of the viewport</option>
-              <option value="vmin">relative to 1% of the viewport's larger dimension</option>
-              <option value="vmax">relative to 1% of the viewport's smaller dimension</option>
-              <option value="rem">relative to the font size of the root element</option>
-              <option value="ch">relative to the width of "0"</option>
-              <option value="ex">relative to the x-height of the font</option>
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
             </select>
           </div>
           <div id="stylColPickMkr">
@@ -459,10 +459,10 @@ export default {
   .styleCreator {
     overflow: hidden;
     display: grid;
-    grid-gap: 0px;
-    padding: 0px;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-gap: 20px;
+    padding: 20px;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
   }
   .addStyleContainer {
     display: grid;
