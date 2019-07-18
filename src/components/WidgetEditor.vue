@@ -6,67 +6,107 @@
         <!-- colour wheel and colour rrggbb inputs for each colour, name of style -->
         <input v-model="modelValues.optionsForStyle.nameOfStyl" placeholder="Name of your style"><br>
         <div id="stylColPickGrid">
-          <div id="stylColPickDshbrd">
+          <div id="stylColPickDshbrd" :class="{stylColPickGridAdvanced: modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff}">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
+
+            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff">
+          </div>
+          <div v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" id="stylColPickDshbrdAdvanced">
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapUnit">
+              <option value="px">pixels</option>
+              <option value="%">percent</option>
+              <option value="cm">centimetres</option>
+              <option value="mm">millimetres</option>
+              <option value="in">inches</option>
+              <option value="pt">points (1/72 of an inch)</option>
+              <option value="pc">picas (12 times points)</option>
+              <option value="em">relative to font size</option>
+              <option value="vw">relative to 1% of the width of the viewport</option>
+              <option value="vh">relative to 1% of the height of the viewport</option>
+              <option value="vmin">relative to 1% of the viewport's larger dimension</option>
+              <option value="vmax">relative to 1% of the viewport's smaller dimension</option>
+              <option value="rem">relative to the font size of the root element</option>
+              <option value="ch">relative to the width of "0"</option>
+              <option value="ex">relative to the x-height of the font</option>
+            </select>
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingUnit">
+              <option value="px">pixels</option>
+              <option value="%">percent</option>
+              <option value="cm">centimetres</option>
+              <option value="mm">millimetres</option>
+              <option value="in">inches</option>
+              <option value="pt">points (1/72 of an inch)</option>
+              <option value="pc">picas (12 times points)</option>
+              <option value="em">relative to font size</option>
+              <option value="vw">relative to 1% of the width of the viewport</option>
+              <option value="vh">relative to 1% of the height of the viewport</option>
+              <option value="vmin">relative to 1% of the viewport's larger dimension</option>
+              <option value="vmax">relative to 1% of the viewport's smaller dimension</option>
+              <option value="rem">relative to the font size of the root element</option>
+              <option value="ch">relative to the width of "0"</option>
+              <option value="ex">relative to the x-height of the font</option>
+            </select>
           </div>
           <div id="stylColPickMkr">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueA">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickB"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB" placeholder="CSS colour name" >
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueB">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickC"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" placeholder="CSS colour name" >
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueC">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickD"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" placeholder="CSS colour name" >
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueD">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS colour name" >
+            <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE">
           </div>
           <div id="stylColPickStylr">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueA">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickB"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueB">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickC"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueC">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickD"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueD">
 
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS colour name">
+            <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE">
           </div>
         </div>
@@ -79,14 +119,13 @@
           <div class="previewGridDashItem previewGridDashItem3" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickDshbrd.valueD }">3</div>
           <div class="previewGridDashItem previewGridDashItem2" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickDshbrd.valueE }">2</div>
         </div>
-        <div class="previewGridWidg" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueC }">
-          <!-- HERE!! ============================================================================================================================================================================= -->
-          <button class="previewGridWidgBtn" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueD }" @click="addPic()">Add New</button>
-          <div class="previewGridWidgTitl" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueC }">1x1</div>
+        <div class="previewGridWidg" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueC, color: modelValues.optionsForStyle.stylColPickMkr.valueE }">
+          <button class="previewGridWidgBtn" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueD, color: modelValues.optionsForStyle.stylColPickMkr.valueE }" @click="addPic()">Add New</button>
+          <div class="previewGridWidgTitl" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueB, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueC }">XxY</div>
           <div class="previewGridWidgList" :style="{ backgroundColor: modelValues.optionsForStyle.stylColPickMkr.valueA, borderColor: modelValues.optionsForStyle.stylColPickMkr.valueC }" id="nonVuePics"></div>
-          <!-- HERE!! ============================================================================================================================================================================= -->
         </div>
-        <div class="previewGridStyl"></div>
+        <div class="previewGridStyl">
+        </div>
       </div>
       <div id="savedStylesOptions">
         <!-- 1 style or all selected styles on loop, select all button, how often to change style(minutes, hours, days) -->
@@ -197,6 +236,13 @@ export default {
             valueC: "orange",
             valueD: "limegreen",
             valueE: "grey",
+            advancedMode: {
+              gridGapVar: "20",
+              gridGapUnit: "px",
+              paddingVar: "20",
+              paddingUnit: "px",
+              onOff: false,
+            },
           },
           stylColPickMkr: {
             nameOrColPickA: true,
@@ -227,6 +273,7 @@ export default {
     }
   },
   computed: {
+    stylColPickGridAdvSymbol(){if(this.modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff){return "x"}else{return "+"}},
     deletableStyles() {return Object.values(this.$store.state.config.cols).filter(x => x.colName !== 'Default Style')},
     intervalBetweenStyleChange(){
       return this.modelValues.savedStylesOptions.unitMultiplier * this.unitOfTimeInMs();
@@ -245,36 +292,105 @@ export default {
   },
   methods: {
     addPic(){
-      switch(Math.floor(Math.random() * 10)){
+      switch(Math.floor(Math.random() * 33)){
         case 0:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/codepen.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/hmw6frrnxc831.png?width=960&crop=smart&auto=webp&s=901185a1637181b5628f5dcde13a7f751adaa6a2' width='100%'>";
           break;
         case 1:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/css.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/hb69lxgd0i831.jpg' width='100%'>";
           break;
         case 2:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/git.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/91haaka67r831.jpg' width='100%'>";
           break;
         case 3:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/github.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/ru8ujr7wtr831.jpg' width='100%'>";
           break;
         case 4:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/html5.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/t2hkunyx1r831.jpg' width='100%'>";
           break;
         case 5:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/javascript.jpg' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/u3wf7ob7y0831.jpg' width='100%'>";
           break;
         case 6:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/nodejs.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/e1yl191vht731.jpg?width=960&crop=smart&auto=webp&s=458c4d047e66785c035a135ed425fe7922dc1252' width='100%'>";
           break;
         case 7:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/notepad++.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/n57feayufz731.png' width='100%'>";
           break;
         case 8:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/phpstorm.png' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/uqky9jm274831.jpg?width=960&crop=smart&auto=webp&s=f2bb9b1e68aa9571653fa1a9dc72d865ba6a29d0' width='100%'>";
           break;
         case 9:
-          document.getElementById("nonVuePics").innerHTML += "<img src='assets/exampleImages/logos/vue.js' alt='404 or something'>";
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/49pptqu254831.jpg' width='100%'>";
+          break;
+        case 10:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://pbs.twimg.com/profile_images/949787136030539782/LnRrYf6e.jpg' width='100%'>";
+          break;
+        case 11:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://external-preview.redd.it/i0e3B9WXh2gHOozasuRaMsZuf99fCbShDDoCGeYcq2s.jpg?width=960&crop=smart&auto=webp&s=8f2e9f06fe26861ee49981acbd39ece59de5c99d' width='100%'>";
+          break;
+        case 12:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/nkkw1yposz831.jpg' width='100%'>";
+          break;
+        case 13:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/37goqtbeit831.jpg' width='100%'>";
+          break;
+        case 14:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/qt7n33e6k4931.jpg' width='100%'>";
+          break;
+        case 15:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/bhnvmlbgl4931.jpg?width=960&crop=smart&auto=webp&s=e4a08240a93ea514433f6dead74a5fffdad54fea' width='100%'>";
+          break;
+        case 16:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/kn4pbwuvx0931.png?width=960&crop=smart&auto=webp&s=6ef1f8efb3126b4574945ad63056b21e2e659fdf' width='100%'>";
+          break;
+        case 17:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/imhomvmmu4931.jpg' width='100%'>";
+          break;
+        case 18:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/zkcyi17m5b931.jpg?width=960&crop=smart&auto=webp&s=573344c7a5f3835489ef2525a9d38de7896b1470' width='100%'>";
+          break;
+        case 19:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/9fa68q6kdx931.jpg' width='100%'>";
+          break;
+        case 20:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/71ykkncenq931.jpg' width='100%'>";
+          break;
+        case 21:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/gjc6xw586t931.jpg' width='100%'>";
+          break;
+        case 22:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/4bqgvfb29s931.jpg' width='100%'>";
+          break;
+        case 23:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/cxqip9h49t931.png' width='100%'>";
+          break;
+        case 24:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/0h9jkf98jq931.png' width='100%'>";
+          break;
+        case 25:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/fms84izrlq931.jpg' width='100%'>";
+          break;
+        case 26:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/meqxwihsro931.jpg' width='100%'>";
+          break;
+        case 27:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/nmwx80rbel931.jpg' width='100%'>";
+          break;
+        case 28:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/ag4mtnwkmg931.jpg' width='100%'>";
+          break;
+        case 29:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://i.redd.it/dp3x6d08an931.png' width='100%'>";
+          break;
+        case 30:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/qcpun44mrk931.jpg?width=960&crop=smart&auto=webp&s=4a80c06ef5731c50a95242de3dbf675074c76fa5' width='100%'>";
+          break;
+        case 31:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/9km2pmfnvk931.png?width=960&crop=smart&auto=webp&s=f84879c29c18bef17146606fecc92b0877a7e116' width='100%'>";
+          break;
+        case 32:
+          document.getElementById("nonVuePics").innerHTML = "<img src='https://preview.redd.it/b9ntbtmrai931.jpg?width=960&crop=smart&auto=webp&s=9c964c2df17ccd5f53d6bd6cd76d9b78e4215e7e' width='100%'>";
           break;
       }
     },
@@ -345,8 +461,8 @@ export default {
     display: grid;
     grid-gap: 0px;
     padding: 0px;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
   }
   .addStyleContainer {
     display: grid;
@@ -399,13 +515,19 @@ export default {
   }
   .previewGridWidgBtn {
     grid-row: span 2;
-    border: 5px solid;
+    border: 4px solid;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 10px;
   }
   .previewGridWidgTitl {
-    border: 5px solid;
+    border: 4px solid;
+    font-size: 11px;
+    text-align: center;
   }
   .previewGridWidgList {
-    border: 5px solid;
+    border: solid;
+    border-width: 0px 4px 4px 4px;
   }
   .previewGridStyl {
     display: grid;
@@ -460,10 +582,32 @@ export default {
     grid-template-columns: 100px;
     grid-template-rows: 34px 34px 34px;
   }
-  #stylColPickGrid div {
+  .stylColPickGridAdvanced {
+    grid-template-rows: 34px 34px 34px 34px;
+  }
+  #stylColPickStylr {
     display: grid;
-    grid-template-columns: repeat(10, 60px 100px);
+    grid-template-columns: repeat(5, 60px 100px);
     grid-template-rows: 34px;
+  }
+  #stylColPickMkr {
+    display: grid;
+    grid-template-columns: repeat(5, 60px 100px);
+    grid-template-rows: 34px;
+  }
+  #stylColPickDshbrd {
+    display: grid;
+    grid-template-columns: repeat(5, 60px 100px) 0;
+    grid-template-rows: 34px;
+  }
+  #stylColPickDshbrdAdvanced {
+    display: grid;
+    grid-template-columns: repeat(2, 200px 200px);
+    grid-template-rows: 34px;
+  }
+  #stylColPickGrid #stylColPickDshbrd input[type="button"] {
+    height: 34px;
+    width: 30px;
   }
   #stylColPickGrid input[type="checkbox"] {
     height: 34px;
@@ -472,6 +616,14 @@ export default {
   #stylColPickGrid input[type="color"], #stylColPickGrid input[type="text"] {
     height: 34px;
     width: 100px;
+  }
+  #stylColPickGrid input[type="number"] {
+    height: 100%;
+    width: 100%;
+  }
+  #stylColPickGrid select {
+    height: 100%;
+    width: 100%;
   }
   .savedStyleExampleBox {
     border: 1px solid black;
@@ -541,14 +693,4 @@ export default {
 </style>
 
 <!--
-<img id="drag0" class="dragImg" src="./exampleImages/logos/vuejs.png" draggable="true" ondragstart="drag(event)">
-<img id="drag1" class="dragImg" src="./exampleImages/logos/codepen.png" draggable="true" ondragstart="drag(event)">
-<img id="drag2" class="dragImg" src="./exampleImages/logos/css.png" draggable="true" ondragstart="drag(event)">
-<img id="drag3" class="dragImg" src="./exampleImages/logos/git.png" draggable="true" ondragstart="drag(event)">
-<img id="drag4" class="dragImg" src="./exampleImages/logos/github.png" draggable="true" ondragstart="drag(event)">
-<img id="drag5" class="dragImg" src="./exampleImages/logos/html5.png" draggable="true" ondragstart="drag(event)">
-<img id="drag6" class="dragImg" src="./exampleImages/logos/javascript.jpg" draggable="true" ondragstart="drag(event)">
-<img id="drag7" class="dragImg" src="./exampleImages/logos/nodejs.png" draggable="true" ondragstart="drag(event)">
-<img id="drag8" class="dragImg" src="./exampleImages/logos/notepad++.png" draggable="true" ondragstart="drag(event)">
-<img id="drag9" class="dragImg" src="./exampleImages/logos/phpstorm.png" draggable="true" ondragstart="drag(event)"></div>
 -->

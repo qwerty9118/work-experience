@@ -46,7 +46,7 @@ export default {
     }
   },
   mounted() {
-    this.layoutGenerator();
+    this.layoutGeneratorFunc();
     setInterval(this.layoutGeneratorFunc, 600000)
   }
 }
