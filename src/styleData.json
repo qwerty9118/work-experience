@@ -1,30 +1,345 @@
 {
   "hello": "world",
-  "array format for cols": ["colvalue", "image", "imagerepeat", "imageposition", "borderwidth(top, right, bottom, left)", "borderstyl(top, right, bottom, left)", "bordercol(top, right, bottom, left)", "roundedcorners(topleft, topright, bottomright, bottomleft)"],
-  "notes": "all colours should be in the format of one of the following: css colour name, hexadecimal, rgba or hsla, and MUST NOT BE rgb or hsl.",
+  "object format for cols": {
+    "colValue": "a colour value",
+    "borderwidth": ["top", "right", "bottom", "left"],
+    "borderstyl": ["top", "right", "bottom", "left"],
+    "bordercol": ["top", "right", "bottom", "left"],
+    "roundedCorners": ["topleft", "topright", "bottomright", "bottomleft"],
+    "image": "an image source",
+    "imagerepeat": "what way to repeat the image, if at all",
+    "imageposition": "where the image is"
+  },
+  "notes": "opacity is done with the rgba or hsla colour values, to stop opacity applying to the child elements as well. also, blank spaces are filled with either a 0 (zero) or the default.",
+  "timB4ChangWidg": 600000,
+  "timB4ChangCol": 600000,
+  "col": {
+    "colName": "Default Style",
+    "dshbrdCol": {
+      "bkgnd": {
+        "background": "white",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "siz1": {
+        "colValue": "aqua",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "siz2": {
+        "colValue": "orange",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "siz3": {
+        "colValue": "limegreen",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "siz4": {
+        "colValue": "grey",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      }
+    },
+    "mkrCol": {
+      "bkgnd": {
+        "colValue": "lightcyan",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "prim": {
+        "colValue": "deepskyblue",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "seco": {
+        "colValue": "blue",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "tert": {
+        "colValue": "navy",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "dtail": {
+        "colValue": "black",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      }
+    },
+    "stylrCol": {
+      "bkgnd": {
+        "colValue": "#FFFFE0",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "prim": {
+        "colValue": "#BFFF00",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "seco": {
+        "colValue": "lime",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "tert": {
+        "colValue": "green",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      },
+      "dtail": {
+        "colValue": "black",
+        "borderWidth": "0 0 0 0",
+        "borderStyle": "solid solid solid solid",
+        "borderColor": "black black black black",
+        "borderRadius": "0 0 0 0",
+        "image": "no",
+        "imageRepeat": "no",
+        "imagePosition": "no"
+      }
+    },
+    "advancedashboardCol": {
+      "borders": {},
+      "morCol": {
+        "examplecol1": {
+          "id": "xtra1",
+          "appliesTo": ["widgetid1", "widgetid2", "widgetclass1", "etc..."],
+          "colVal": "teal"
+        }
+      }
+    }
+  },
   "cols": {
-    "col": {
+    "colDefault": {
       "colName": "Default Style",
       "dshbrdCol": {
-        "bkgnd": "white",
-        "siz1": "aqua",
-        "siz2": "orange",
-        "siz3": "limegreen",
-        "siz4": "grey"
+        "bkgnd": {
+          "background": "white",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "siz1": {
+          "colValue": "aqua",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "siz2": {
+          "colValue": "orange",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "siz3": {
+          "colValue": "limegreen",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "siz4": {
+          "colValue": "grey",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        }
       },
       "mkrCol": {
-        "bkgnd": "lightcyan",
-        "prim": "deepskyblue",
-        "seco": "blue",
-        "tert": "navy",
-        "dtail": "black"
+        "bkgnd": {
+          "colValue": "lightcyan",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "prim": {
+          "colValue": "deepskyblue",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "seco": {
+          "colValue": "blue",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "tert": {
+          "colValue": "navy",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "dtail": {
+          "colValue": "black",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        }
       },
       "stylrCol": {
-        "bkgnd": "#FFFFE0",
-        "prim": "#BFFF00",
-        "seco": "lime",
-        "tert": "green",
-        "dtail": "black"
+        "bkgnd": {
+          "colValue": "#FFFFE0",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "prim": {
+          "colValue": "#BFFF00",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "seco": {
+          "colValue": "lime",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "tert": {
+          "colValue": "green",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        },
+        "dtail": {
+          "colValue": "black",
+          "borderWidth": "0 0 0 0",
+          "borderStyle": "solid solid solid solid",
+          "borderColor": "black black black black",
+          "borderRadius": "0 0 0 0",
+          "image": "no",
+          "imageRepeat": "no",
+          "imagePosition": "no"
+        }
       },
       "advancedashboardCol": {
         "borders": {},
@@ -32,7 +347,7 @@
           "examplecol1": {
             "id": "xtra1",
             "appliesTo": ["widgetid1", "widgetid2", "widgetclass1", "etc..."],
-            "colVal": "peachteal"
+            "colVal": "teal"
           }
         }
       }

@@ -47,7 +47,7 @@ export default {
   },
   mounted() {
     this.layoutGeneratorFunc();
-    setInterval(this.layoutGeneratorFunc, 600000)
+    setInterval(this.layoutGeneratorFunc, this.$store.state.config.timB4ChangWidg)
   }
 }
 </script>
@@ -62,11 +62,7 @@ export default {
     display: grid;
     /*cursor: none;*/
     grid-gap: 20px;
-    margin: 0px 0px 0px 0px;
-    border-top: 0px solid black;
-    border-right: 0px solid black;
-    border-bottom: 0px solid black;
-    padding: 0px 0px 0px 0px;
+    padding: 20px;
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(3,1fr);
     height: 100vh;
@@ -80,9 +76,6 @@ export default {
     //grid-column-end: span 1;
     //grid-row-end: span 1;
   }
-  .doubleX {grid-column-end: span 2 !important;}
-  .doubleY {grid-row-end: span 2 !important;}
-  .colour1{background-color: aqua !important;}
-  .colour2{background-color: orange !important;}
-  .colour3{background-color: limegreen !important;}
+  .doubleX {grid-column-end: span 2;}
+  .doubleY {grid-row-end: span 2;}
 </style>

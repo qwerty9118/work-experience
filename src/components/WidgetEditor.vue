@@ -134,6 +134,7 @@
           <option :style="{  }">Minutes</option>
           <option :style="{  }">Hours</option>
           <option :style="{  }">Days</option>
+          <option :style="{  }">Changes of layout</option>
         </select>
         <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.savedStylesOptions.oneOrManyStyles"><span class="slider"></span></label>
         <br>
@@ -146,7 +147,7 @@
           <li id="defaultStyle">
             <p>Default Style: </p>
             <div class="savedStyleExampleBoxGrid">
-              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.bkgnd }"></div>
+              <div class="savedStyleExampleBox" :style="this.$store.state.config.cols.colDefault.dshbrdCol.bkgnd"></div>
               <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz1 }"></div>
               <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz2 }"></div>
               <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz3 }"></div>
@@ -286,6 +287,8 @@ export default {
         output = 3600000;
       }else if(this.modelValues.savedStylesOptions.unitOfTime === "Days"){
         output = 86400000;
+      }else if(this.modelValues.savedStylesOptions.unitOfTime === "Changes of layout"){
+        output = this.$store.state.config.timB4ChangWidg;
       }
       return output;
     }
