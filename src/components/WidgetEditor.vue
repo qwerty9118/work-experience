@@ -1,7 +1,7 @@
 <template>
   <div id="htmlbit" :class="htmlbitClasses">
-    <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.col.stylrCol.tert }"></div>
-    <div class="styleCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.col.stylrCol.tert }">
+    <div @click="change2style()" v-if="goTopBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert }"></div>
+    <div class="styleCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert }">
       <div id="optionsForStyle">
         <!-- colour wheel and colour rrggbb inputs for each colour, name of style -->
         <input v-model="modelValues.optionsForStyle.nameOfStyl" placeholder="Name of your style"><br>
@@ -87,6 +87,46 @@
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE"><span class="slider"></span></label>
             <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE">
+
+            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff">
+          </div>
+          <div v-if="modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff" id="stylColPickMkrAdvanced">
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickMkr.advancedMode.gridGapVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickMkr.advancedMode.gridGapUnit">
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
+            </select>
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickMkr.advancedMode.paddingVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickMkr.advancedMode.paddingUnit">
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
+            </select>
           </div>
           <div id="stylColPickStylr">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA"><span class="slider"></span></label>
@@ -108,6 +148,46 @@
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE"><span class="slider"></span></label>
             <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE">
+
+            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff">
+          </div>
+          <div v-if="modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff" id="stylColPickStylrAdvanced">
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickStylr.advancedMode.gridGapVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickStylr.advancedMode.gridGapUnit">
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
+            </select>
+            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickStylr.advancedMode.paddingVar">
+            <select v-model="modelValues.optionsForStyle.stylColPickStylr.advancedMode.paddingUnit">
+              <option value="px">px (pixels)</option>
+              <option value="%">% (percent)</option>
+              <option value="cm">cm (centimetres)</option>
+              <option value="mm">mm (millimetres)</option>
+              <option value="in">in (inches)</option>
+              <option value="pt">pt (points (1/72 of an inch))</option>
+              <option value="pc">pc (picas (12 times points))</option>
+              <option value="em">em (relative to font size)</option>
+              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
+              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
+              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
+              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
+              <option value="rem">rem (relative to the font size of the root element)</option>
+              <option value="ch">ch (relative to the width of "0")</option>
+              <option value="ex">ex (relative to the x-height of the font)</option>
+            </select>
           </div>
         </div>
       </div>
@@ -148,10 +228,10 @@
             <p>Default Style: </p>
             <div class="savedStyleExampleBoxGrid">
               <div class="savedStyleExampleBox" :style="this.$store.state.config.cols.colDefault.dshbrdCol.bkgnd"></div>
-              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz1 }"></div>
-              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz2 }"></div>
-              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz3 }"></div>
-              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.col.dshbrdCol.siz4 }"></div>
+              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.dshbrdCol.siz1 }"></div>
+              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.dshbrdCol.siz2 }"></div>
+              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.dshbrdCol.siz3 }"></div>
+              <div class="savedStyleExampleBox" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.dshbrdCol.siz4 }"></div>
             </div>
             <input v-if="!modelValues.savedStylesOptions.oneOrManyStyles" type="radio" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedRadio">
             <input v-else type="checkbox" class="selectSavedStyle" :style="{  }" :value="modelValues.savedStyles.savedStyleValues.checkDefault" v-model="modelValues.savedStyles.checkedBoxes">
@@ -180,20 +260,20 @@
       </div>
     </div>
 
-    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }"></div>
-    <div class="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
-      <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.tert }">
-        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">
+    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }"></div>
+    <div class="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
+      <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
+        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">
       </div>
-      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.seco, color: this.$store.state.config.cols.col.mkrCol.dtail }">
-        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">1x1</div>
-        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">2x1</div>
-        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">1x2</div>
-        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.prim, color: this.$store.state.config.cols.col.mkrCol.dtail }">2x2</div>
-        <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
-        <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
-        <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div>
-        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.col.mkrCol.bkgnd }"></div><!-- i am aware that this looks awful -->
+      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.seco, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">
+        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">1x1</div>
+        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">2x1</div>
+        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">1x2</div>
+        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">2x2</div>
+        <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
+        <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
+        <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
+        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div><!-- i am aware that this looks awful -->
       </div>
     </div>
   </div>
@@ -204,6 +284,7 @@ export default {
   name: 'WidgetEditor',
   data () {
     return {
+      currentStyle: {},
       htmlbitClasses: "htmlbit",
       goTopBar: 1,
       goBottomBar: 0,
@@ -433,6 +514,8 @@ export default {
   mounted() {
     this.modelValues.savedStyles.savedStyleValues = Object.values(this.$store.state.config.cols).filter(x => x.colName !== 'Default Style').map(x => x.colName).reduce(function(obj, item){obj[item] = item; return obj}, {});
     this.modelValues.savedStyles.savedStyleValues.checkDefault = "checkDefault";
+    this.currentStyle = this.$store.state.config.cols[this.$store.state.config.currentStyle];
+    console.log(this.currentStyle);
   },
 }
 </script>

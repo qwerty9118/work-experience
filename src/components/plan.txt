@@ -1,0 +1,32 @@
+so i will set the config.blahblah to a local object so i can access it easier. the object will hold the current style values. the object will hold the time at which the style will change. the object will be stored with the json file, an object in the webpage, and also in the pseudo-cookies thing. on the close or reload of the webpage, and when a certain button is clicked, the object will be saved and refreshed.
+
+it might be a lot easier to just let whoever code the style properties themselves.
+ye imma just do that less effort ftw
+
+/*object: {
+	timeOfChange: "A",
+	styling: {
+		backgroundColor: "A",
+		borderWidth: "A B C D",
+		borderColor: "A B C D",
+		borderStyle: "A B C D",
+		image: "source",
+		imageRepeat: "",
+		imagePosition: "A",
+		textShadow: "xOffset1 yOffset1 blur1 colour1, XOffsetn YOffsetn blurn colourn",
+	}
+}*/
+
+object: {
+	timeOfChange: "the time when the style changes - calculation in pseudocode:
+
+
+	for(var newTimeOfChange = prevTimeOfChange; newTimeOfChange < document.getTime; newTimeOfChange += intervalBetweenChanges){
+		if(newTimeOfChange > document.getTime){
+			console.log(newTimeOfChange, document.getTime)
+		}
+	}
+
+
+	if a change takes place when the page is not running, it will change as soon as the page reopens - pseudocode would be: if(document.getTime < timeOfChange){changeStyle}"
+}
