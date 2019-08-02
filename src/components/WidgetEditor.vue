@@ -318,7 +318,7 @@ export default {
             valueC: "orange",
             valueD: "limegreen",
             valueE: "grey",
-            advancedMode: {
+            advancedMode: { //note: this seems to be referenced only in stylColPickStylr, perhaps i should move it there?
               gridGapVar: "20",
               gridGapUnit: "px",
               paddingVar: "20",

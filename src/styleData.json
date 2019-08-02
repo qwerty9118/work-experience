@@ -19,167 +19,26 @@
     "colDefault": {
       "colName": "Default Style",
       "dshbrdCol": {
-        "bkgnd": {
-          "background": "white",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "siz1": {
-          "colValue": "aqua",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "siz2": {
-          "colValue": "orange",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "siz3": {
-          "colValue": "limegreen",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "siz4": {
-          "colValue": "grey",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        }
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;",
+        "xtraCol": {}
       },
       "mkrCol": {
-        "bkgnd": {
-          "colValue": "lightcyan",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "prim": {
-          "colValue": "deepskyblue",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "seco": {
-          "colValue": "blue",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "tert": {
-          "colValue": "navy",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "dtail": {
-          "colValue": "black",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        }
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
       },
       "stylrCol": {
-        "bkgnd": {
-          "colValue": "#FFFFE0",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "prim": {
-          "colValue": "#BFFF00",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "seco": {
-          "colValue": "lime",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "tert": {
-          "colValue": "green",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-          "image": "no",
-          "imageRepeat": "no",
-          "imagePosition": "no"
-        },
-        "dtail": {
-          "colValue": "black",
-          "borderWidth": "0 0 0 0",
-          "borderStyle": "solid solid solid solid",
-          "borderColor": "black black black black",
-          "borderRadius": "0 0 0 0",
-        }
-      },
-      "advancedashboardCol": {
-        "borders": {},
-        "morCol": {
-          "examplecol1": {
-            "id": "xtra1",
-            "appliesTo": ["widgetid1", "widgetid2", "widgetclass1", "etc..."],
-            "colVal": "teal"
-          }
-        }
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
       }
     }
   }
