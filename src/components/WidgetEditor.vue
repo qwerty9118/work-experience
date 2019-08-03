@@ -5,67 +5,34 @@
       <div id="optionsForStyle">
         <!-- colour wheel and colour rrggbb inputs for each colour, name of style -->
         <input v-model="modelValues.optionsForStyle.nameOfStyl" placeholder="Name of your style"><br>
-        <div id="stylColPickGrid">
-          <div id="stylColPickDshbrd" :class="{stylColPickGridAdvanced: modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff}">
-            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS or RGB">
-            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
+        <div id="stylColPickGrid" :style="onOffStyle">
+          <div id="stylColPickDshbrd">
+            <!--<div v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"></div>-->
+            <label class="switch" v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA" placeholder="CSS or RGB">
+            <input v-if="!modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickA && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueA">
 
-            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS or RGB">
-            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
+            <label class="switch" v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB" placeholder="CSS or RGB">
+            <input v-if="!modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickB && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueB">
 
-            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS or RGB">
-            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
+            <label class="switch" v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC" placeholder="CSS or RGB">
+            <input v-if="!modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickC && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueC">
 
-            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS or RGB">
-            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
+            <label class="switch" v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD" placeholder="CSS or RGB">
+            <input v-if="!modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickD && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueD">
 
-            <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE"><span class="slider"></span></label>
-            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS or RGB">
-            <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
+            <label class="switch" v-if="!modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE"><span class="slider"></span></label>
+            <input v-if="modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE" placeholder="CSS or RGB">
+            <input v-if="!modelValues.optionsForStyle.stylColPickDshbrd.nameOrColPickE && !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickDshbrd.valueE">
 
-            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff">
-          </div>
-          <div v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff" id="stylColPickDshbrdAdvanced">
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.gridGapUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.paddingUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
+            <select v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"></select>
+<!--            <textarea v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"></textarea>-->
+<!--            <p v-if="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff"></p>-->
+
+            <input type="button" :value="stylColPickGridAdvSymbol" :style="advModeTogglButtonStyle" @click="modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff">
           </div>
           <div id="stylColPickMkr">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickA"><span class="slider"></span></label>
@@ -87,46 +54,6 @@
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE"><span class="slider"></span></label>
             <input v-if="modelValues.optionsForStyle.stylColPickMkr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE" placeholder="CSS or RGB" >
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickMkr.valueE">
-
-            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff">
-          </div>
-          <div v-if="modelValues.optionsForStyle.stylColPickMkr.advancedMode.onOff" id="stylColPickMkrAdvanced">
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickMkr.advancedMode.gridGapVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickMkr.advancedMode.gridGapUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickMkr.advancedMode.paddingVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickMkr.advancedMode.paddingUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
           </div>
           <div id="stylColPickStylr">
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickA"><span class="slider"></span></label>
@@ -148,46 +75,6 @@
             <label class="switch"><input class="nameOrColPick" type="checkbox" v-model="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE"><span class="slider"></span></label>
             <input v-if="modelValues.optionsForStyle.stylColPickStylr.nameOrColPickE" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE" placeholder="CSS or RGB">
             <input v-else type="color" :style="{  }" v-model="modelValues.optionsForStyle.stylColPickStylr.valueE">
-
-            <input type="button" :value="stylColPickGridAdvSymbol" @click="modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff = !modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff">
-          </div>
-          <div v-if="modelValues.optionsForStyle.stylColPickStylr.advancedMode.onOff" id="stylColPickStylrAdvanced">
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickStylr.advancedMode.gridGapVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickStylr.advancedMode.gridGapUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
-            <input type="number" v-model.number="modelValues.optionsForStyle.stylColPickStylr.advancedMode.paddingVar">
-            <select v-model="modelValues.optionsForStyle.stylColPickStylr.advancedMode.paddingUnit">
-              <option value="px">px (pixels)</option>
-              <option value="%">% (percent)</option>
-              <option value="cm">cm (centimetres)</option>
-              <option value="mm">mm (millimetres)</option>
-              <option value="in">in (inches)</option>
-              <option value="pt">pt (points (1/72 of an inch))</option>
-              <option value="pc">pc (picas (12 times points))</option>
-              <option value="em">em (relative to font size)</option>
-              <option value="vw">vw (relative to 1% of the width of the viewport)</option>
-              <option value="vh">vh (relative to 1% of the height of the viewport)</option>
-              <option value="vmin">vmin (relative to 1% of the viewport's larger dimension)</option>
-              <option value="vmax">vmax (relative to 1% of the viewport's smaller dimension)</option>
-              <option value="rem">rem (relative to the font size of the root element)</option>
-              <option value="ch">ch (relative to the width of "0")</option>
-              <option value="ex">ex (relative to the x-height of the font)</option>
-            </select>
           </div>
         </div>
       </div>
@@ -318,11 +205,7 @@ export default {
             valueC: "orange",
             valueD: "limegreen",
             valueE: "grey",
-            advancedMode: { //note: this seems to be referenced only in stylColPickStylr, perhaps i should move it there?
-              gridGapVar: "20",
-              gridGapUnit: "px",
-              paddingVar: "20",
-              paddingUnit: "px",
+            advancedMode: { //no advanced mode for stylr or mkr, advanced mode should only contain css strings.
               onOff: false,
             },
           },
@@ -355,6 +238,8 @@ export default {
     }
   },
   computed: {
+    advModeTogglButtonStyle(){if(this.modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff){return {height: "100px"}}else{return {height: "34px"}}},
+    onOffStyle(){if(this.modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff){return {gridTemplateRows: "100px 34px 34px"}}else{return {gridTemplateRows: "34px 34px 34px"}}},
     stylColPickGridAdvSymbol(){if(this.modelValues.optionsForStyle.stylColPickDshbrd.advancedMode.onOff){return "x"}else{return "+"}},
     deletableStyles() {return Object.values(this.$store.state.config.cols).filter(x => x.colName !== 'Default Style')},
     intervalBetweenStyleChange(){
@@ -666,10 +551,6 @@ export default {
   #stylColPickGrid {
     display: grid;
     grid-template-columns: 100px;
-    grid-template-rows: 34px 34px 34px;
-  }
-  .stylColPickGridAdvanced {
-    grid-template-rows: 34px 34px 34px 34px;
   }
   #stylColPickStylr {
     display: grid;
@@ -688,12 +569,37 @@ export default {
   }
   #stylColPickDshbrdAdvanced {
     display: grid;
-    grid-template-columns: repeat(2, 200px 200px);
-    grid-template-rows: 34px;
+    grid-template-columns: repeat(3, 266px);
+    grid-template-rows: 100px;
   }
-  #stylColPickGrid #stylColPickDshbrd input[type="button"] {
-    height: 34px;
+  #stylColPickGrid input[type="button"] {
     width: 30px;
+  }
+  #stylColPickGrid select {
+    width: 266px;
+    height: 100px;
+    font-family: monospace;
+    margin: 0;
+    vertical-align: top;
+  }
+  #stylColPickGrid textarea {
+    width: 266px;
+    height: 100px;
+    background-color: deepskyblue;
+    resize: none;
+    font-family: monospace;
+    margin: 0;
+    vertical-align: top;
+  }
+  #stylColPickGrid p {
+    width: 266px;
+    height: 100px;
+    background-color: mediumseagreen;
+    overflow: auto;
+    display: inline-block;
+    font-family: monospace;
+    margin: 0;
+    vertical-align: top;
   }
   #stylColPickGrid input[type="checkbox"] {
     height: 34px;
