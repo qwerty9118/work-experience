@@ -38,7 +38,7 @@ export default {
     padding: 0px;
     grid-template-columns: 100%;
     grid-template-rows: 5% 95%;
-    transition: grid-template-rows 1s ease 0s
+    transition: grid-template-rows 1s ease 0s;
   }
   .htmlbitSwitch {
     grid-template-rows: 95% 5%;
