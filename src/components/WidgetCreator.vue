@@ -1,7 +1,7 @@
 <template>
-  <div id="widgetCreator">
-    <div @click="change2widget()" v-if="goBottomBar === 1" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }"></div>
-    <div class="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
+  <div id="WCWrapper">
+    <div @click="$emit('changeW')" v-if="state == 0" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert, height:'100%', color:'white' }">---+ To the style settings +---</div>
+    <div id="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert, height:'100%' }">
       <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
         <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">
       </div>
@@ -22,6 +22,7 @@
 <script>
 export default {
   name: 'WidgetCreator',
+  props: ['state'],
   data () {
     return {}
   },
@@ -34,9 +35,9 @@ export default {
 <style scoped>
   * {
     box-size: border-box;
-    display: inline;
+    /*display: inline;*/
   }
-  .widgetCreator {
+  #widgetCreator {
     display: grid;
     grid-gap: 0px;
     padding: 0px;

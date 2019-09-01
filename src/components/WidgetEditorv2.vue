@@ -1,7 +1,7 @@
 <template>
-  <div id="htmlbit" class="htmlbit">
-    <style-creator></style-creator>
-    <widget-creator></widget-creator>
+  <div id="WEWrapper" :style="WStyle">
+    <style-creator :state="state.s" @changeS="stateChange('s')"></style-creator>
+    <widget-creator :state="state.w" @changeW="stateChange('w')"></widget-creator>
   </div>
 </template>
 
@@ -15,10 +15,27 @@ export default {
     WidgetCreator
   },
   data () {
-    return {}
+    return {
+      WStyle: "",
+      state: { s: 0, w: 1 }
+    }
   },
   computed: {},
-  methods: {},
+  methods: {
+    dlayChange(value){if(value == "s"){this.state.w = 0;}else{this.state.s = 0;}},
+    stateChange(value){
+      if(value == "s"){
+        this.WStyle = "grid-template-rows: 95% 5%;";
+        this.state.s = 1;
+        setTimeout(this.dlayChange, 870, "s");
+      }
+      else{
+        this.WStyle = "";
+        this.state.w = 1;
+        setTimeout(this.dlayChange, 870, "w");
+      }
+    }
+  },
   mounted() {},
 }
 </script>
@@ -31,7 +48,7 @@ export default {
   body {
     overflow: hidden;
   }
-  .htmlbit {
+  #WEWrapper {
     height: 100vh;
     display: grid;
     grid-gap: 0px;
@@ -39,8 +56,5 @@ export default {
     grid-template-columns: 100%;
     grid-template-rows: 5% 95%;
     transition: grid-template-rows 1s ease 0s;
-  }
-  .htmlbitSwitch {
-    grid-template-rows: 95% 5%;
   }
 </style>
