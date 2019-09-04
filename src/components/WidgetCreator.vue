@@ -16,6 +16,7 @@
         <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div><!-- i am aware that this looks awful -->
       </div>
     </div>
+		<div id="widgetForm"></div>
   </div>
 </template>
 
