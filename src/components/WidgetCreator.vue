@@ -13,10 +13,18 @@
         <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
         <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
         <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
-        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div><!-- i am aware that this looks awful -->
+        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }">
+				</div><!-- i am aware that this looks awful -->
       </div>
     </div>
-		<div id="widgetForm"></div>
+		<div id="widgetForm">
+			Widget Name: <input type="text" id="name">
+			Widget Groups: <div>
+				<div v-for="group in groups" :key="group" class="groupItem" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">{{ group }} <input type="checkbox" :value="group"></div>
+			</div>
+			<input type="button" value="CANCEL">
+			<input type="button" value="ADD WIDGET">
+		</div>
   </div>
 </template>
 
@@ -25,7 +33,9 @@ export default {
   name: 'WidgetCreator',
   props: ['state'],
   data () {
-    return {}
+    return {
+			groups: ["hello", "my", "dewds"]
+		}
   },
   computed: {},
   methods: {},
@@ -79,4 +89,8 @@ export default {
     width: 90%;
     margin: 2px 4px 0px 4px;
   }
+	.groupItem {
+		display: inline;
+		border-box: 2px solid black;
+	}
 </style>

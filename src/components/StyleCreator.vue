@@ -2,20 +2,21 @@
   <div id="SCWrapper" style="display:grid;">
     <div @click="$emit('changeS')" v-if="state == 0" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert, color:'white' }">---+ To the widget settings +---</div>
     <div id="styleCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert, height:'100%' }">
-        <div id="boxA">other edit bits</div>
-        <div id="boxB">list options</div>
-        <div id="boxC">
-          <div id="boxH">
-            <p style="margin: 0.5em;">Select classes and ids to be styled:</p>
-            <select id="boxE" multiple>
-              <option>None</option>
-              <option value="all">All</option>
-            </select>
-          </div>
-          <div id="boxF">an example of what the output would look like (top right)</div>
-          <textarea id="boxG" placeholder="Style Code"></textarea>
+      <div id="boxA">other edit bits</div>
+      <div id="boxB">list options</div>
+      <div id="boxC">
+        <div id="boxH">
+          <p style="margin: 0.5em;">Select classes and ids to be styled:</p>
+          <select id="boxE" multiple>
+            <option>None</option>
+            <option value="all">All</option>
+            <option v-for="item in idsAndClasses">{{ item }}</option>
+          </select>
         </div>
-        <div id="boxD">list</div>
+        <div id="boxF">an example of what the output would look like (top right)</div>
+        <textarea id="boxG" placeholder="Style Code"></textarea>
+      </div>
+      <div id="boxD">list</div>
     </div>
   </div>
 </template>
@@ -25,7 +26,9 @@ export default {
   name: 'StyleCreator',
   props: ["state"],
   data () {
-    return {}
+    return {
+      idsAndClasses: ""
+    }
   },
   computed: {},
   methods: {},
