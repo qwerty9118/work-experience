@@ -13,15 +13,23 @@
         <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
         <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
         <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
-        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }">
+        <div id="size4" class="widgetList" style="background-color: skyblue;"><!-- { backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd } -->
 					<div id="widgetForm">
 						Widget Name: <input type="text" id="name"><br>
 						Widget Groups: <div>
 							<div v-for="group in groups" :key="group" class="groupItem"> <!--:style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">-->{{ group }} <input type="checkbox" :value="group"></div>
 						</div>
 						<textarea v-model="widgetInnerHtml"></textarea>
-						<div id="previewWidget">{{widgetInnerHtml}}</div><br>
-						<input type="button" value="CANCEL">
+						<div id="previewWidget">hmm{{widgetInnerHtml}}</div><br>
+						<!-- <div style="-webkit-box-shadow: 0 0 20px magenta; -webkit-border-radius: 100px; height: 100px; width: 100px; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(255,0,255,.2)), to(rgba(255,255,255,.7)));"></div><br>
+						<div style="-webkit-box-shadow: 0 0 20px goldenrod; -webkit-border-radius: 100px; height: 100px; width: 200px; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(218,165,32,.2)), to(rgba(255,255,255,.7)));"></div><br>
+						<div style="border: 3px solid rgba(0, 0, 0, 0.02); -webkit-box-shadow: 0 0 10px white; -webkit-border-radius: 100px; height: 200px; width: 100px; background: -webkit-gradient(radial, center center, 0, center center, 200, from(rgba(255,255,255,.1)), to(rgba(255,255,255,.9)));"></div><br>
+            <div style="-webkit-box-shadow: 0 0 20px lime; -webkit-border-radius: 200px; height: 200px; width: 200px; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(0,255,0,.2)), to(rgba(255,255,255,.7)));"></div> -->
+            <div style="height: 100px; width: 100px; background-image: url(/assets/Images/annoyingMode/annoying.PNG);"></div><br>
+            <div style="height: 100px; width: 200px;"></div><br>
+            <div style="height: 200px; width: 100px;"></div><br>
+            <div style="height: 200px; width: 200px;"></div>
+            <input type="button" value="CANCEL">
 						<input type="button" value="ADD WIDGET">
 					</div>
 				</div><!-- i am aware that this looks awful -->
