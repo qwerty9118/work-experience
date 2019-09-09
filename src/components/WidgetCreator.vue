@@ -15,17 +15,19 @@
         <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
         <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }">
 					<div id="widgetForm">
-						Widget Name: <input type="text" id="name">
+						Widget Name: <input type="text" id="name"><br>
 						Widget Groups: <div>
-						<div v-for="group in groups" :key="group" class="groupItem"> <!--:style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">-->{{ group }} <input type="checkbox" :value="group"></div>
-					</div>
+							<div v-for="group in groups" :key="group" class="groupItem"> <!--:style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">-->{{ group }} <input type="checkbox" :value="group"></div>
+						</div>
+						<textarea v-model="widgetInnerHtml"></textarea>
+						<div id="previewWidget">{{widgetInnerHtml}}</div><br>
 						<input type="button" value="CANCEL">
 						<input type="button" value="ADD WIDGET">
 					</div>
 				</div><!-- i am aware that this looks awful -->
       </div>
     </div>
-		<!---->
+		<!--  -->
   </div>
 </template>
 
@@ -35,7 +37,8 @@ export default {
   props: ['state'],
   data () {
     return {
-			groups: ["hello", "my", "dewds"]
+			groups: ["hello", "my", "dewds"],
+			widgetInnerHtml: "",
 		}
   },
   computed: {},
@@ -56,6 +59,11 @@ export default {
     grid-template-columns: 10% 90%;
     grid-template-rows: 100%;
   }
+	#previewWidget {
+		display: inline;
+		width: 50%;
+		resize: none;
+	}
   .addNewContainer {
     display: grid;
     grid-gap: 10px;
