@@ -23,8 +23,127 @@
         "siz1": "backgroundColor: aqua;",
         "siz2": "backgroundColor: orange;",
         "siz3": "backgroundColor: limegreen;",
-        "siz4": "backgroundColor: grey;",
-        "xtraCol": {}
+        "siz4": "backgroundColor: grey;"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
+      }
+    },
+    "Default (light)": {
+      "colName": "Default Style",
+      "dshbrdCol": {
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
+      }
+    },
+    "Default (dark)": {
+      "colName": "Default Style",
+      "dshbrdCol": {
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
+      }
+    },
+    "Default (bubbles)": {
+      "colName": "Default Style",
+      "dshbrdCol": {
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
+      }
+    },
+    "Default (Z͆̓ͥ̉ͫͬ҉̶̭̟͍̯̥̰̹̱̰̮̱̬́̕͝A̢̛̬̹͎̩̳̩̺̪͚̖̲͐̄̉́̇ͩ̋ͩ̈ͥ̒̏̅͠L̄͐ͫͬͪ̿ͬͦͦ́̈ͪ҉҉̛̦̟̦̞̱͜͞G̸̼͙̟̳̩̯̯̜̈̌ͨͭͬ̔̃ͪͯ͆̃̿ͣ͒̕Ơ̡̨̗̣͇̜̠͙̟͚̺̞̝̞͑̔͒̉̍̒̒ͥͭͬ̀͌͐̂̆̿͟ͅ!̶̨̫̟̖̲̠͇͕̍͛̎͋̅͗̽̏̀ͬ̋̀ͯ̈ͨͤͧ)": {
+      "colName": "Default Style",
+      "dshbrdCol": {
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;"
+      },
+      "mkrCol": {
+        "bkgnd": "lightcyan",
+        "prim": "deepskyblue",
+        "seco": "blue",
+        "tert": "navy",
+        "dtail": "black"
+      },
+      "stylrCol": {
+        "bkgnd": "#FFFFE0",
+        "prim": "#BFFF00",
+        "seco": "lime",
+        "tert": "green",
+        "dtail": "black"
+      }
+    },
+    "Default (disgusting) EPILEPSY WARNING": {
+      "colName": "Default Style",
+      "dshbrdCol": {
+        "bkgnd": "backgroundColor: white;",
+        "siz1": "backgroundColor: aqua;",
+        "siz2": "backgroundColor: orange;",
+        "siz3": "backgroundColor: limegreen;",
+        "siz4": "backgroundColor: grey;"
       },
       "mkrCol": {
         "bkgnd": "lightcyan",
