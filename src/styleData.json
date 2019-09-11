@@ -67,11 +67,11 @@
     "Default (dark)": {
       "colName": "Default Style",
       "dshbrdCol": {
-        "bkgnd": "backgroundColor: white;",
-        "siz1": "backgroundColor: aqua;",
-        "siz2": "backgroundColor: orange;",
-        "siz3": "backgroundColor: limegreen;",
-        "siz4": "backgroundColor: grey;"
+        "bkgnd": "backgroundColor: black;",
+        "siz1": "backgroundColor: red;",
+        "siz2": "backgroundColor: rgb(50, 50, 50);",
+        "siz3": "backgroundColor: crimson;",
+        "siz4": "backgroundColor: darkred;"
       },
       "mkrCol": {
         "bkgnd": "lightcyan",
@@ -91,11 +91,11 @@
     "Default (bubbles)": {
       "colName": "Default Style",
       "dshbrdCol": {
-        "bkgnd": "backgroundColor: white;",
-        "siz1": "backgroundColor: aqua;",
-        "siz2": "backgroundColor: orange;",
-        "siz3": "backgroundColor: limegreen;",
-        "siz4": "backgroundColor: grey;"
+        "bkgnd": "backgroundColor: skyblue;",
+        "siz1": "-webkit-box-shadow: 0 0 20px magenta; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(255,0,255,.2)), to(rgba(255,255,255,.7)));",
+        "siz2": "-webkit-box-shadow: 0 0 20px goldenrod; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(218,165,32,.2)), to(rgba(255,255,255,.7)));",
+        "siz3": "border: 3px solid rgba(0, 0, 0, 0.02); -webkit-box-shadow: 0 0 10px white; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 200, from(rgba(255,255,255,.1)), to(rgba(255,255,255,.9)));",
+        "siz4": "-webkit-box-shadow: 0 0 20px lime; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(0,255,0,.2)), to(rgba(255,255,255,.7)));"
       },
       "mkrCol": {
         "bkgnd": "lightcyan",
