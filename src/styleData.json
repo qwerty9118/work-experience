@@ -70,7 +70,7 @@
         "bkgnd": "backgroundColor: black;",
         "siz1": "backgroundColor: red;",
         "siz2": "backgroundColor: rgb(50, 50, 50);",
-        "siz3": "backgroundColor: crimson;",
+        "siz3": "backgroundColor: rgb(25, 25, 25);",
         "siz4": "backgroundColor: darkred;"
       },
       "mkrCol": {

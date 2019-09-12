@@ -144,7 +144,7 @@ function layoutGenerator() {
       sizeYClass = " grid-item-Y2";
       colourClass = " grid-item-grey";
     }
-    document.getElementById("ansColour").innerHTML += '<div id="'+definedBlocks[4][reZero]+'" class="grid-item'+sizeXClass+sizeYClass+colourClass+'"></div>';
+    document.getElementById("ansColour").innerHTML += '<div id="'+definedBlocks[4][reZero]+'" class="grid-item'+sizeXClass+sizeYClass+colourClass+'">Hello my dewds</div>';
   }
 }
 layoutGenerator();
@@ -165,11 +165,11 @@ setInterval(layoutGenerator, 600000);
     /*cursor: none;*/
 
     grid-gap: 20px;
-    margin: 20px;
+    margin: 0px;
     border-top: 0px solid black;
     border-right: 0px solid black;
     border-bottom: 0px solid black;
-    padding: 0px 0px 0px 0px;
+    padding: 20px;
 
     grid-template-columns: repeat(5,1fr);
     grid-template-rows: repeat(3,1fr);
@@ -182,7 +182,7 @@ setInterval(layoutGenerator, 600000);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 20px;
+    /*border-radius: 20px;*/
   }
   .grid-item-X1 {
     grid-column-end: span 1;
@@ -196,21 +196,20 @@ setInterval(layoutGenerator, 600000);
   .grid-item-Y2 {
     grid-row-end: span 2;
   }
+  body{
+  	background-color: skyblue;
+  }
   .grid-item-blue{
-    background-color: aqua;
-    border: 5px solid #00aaaa;
+    -webkit-box-shadow: 0 0 20px magenta; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(255,0,255,.2)), to(rgba(255,255,255,.7)));
   }
   .grid-item-orange{
-    background-color: orange;
-    border: 5px solid darkorange;
+    -webkit-box-shadow: 0 0 20px goldenrod; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(218,165,32,.2)), to(rgba(255,255,255,.7)));
   }
   .grid-item-green{
-    background-color: limegreen;
-    border: 5px solid green;
+    border: 3px solid rgba(0, 0, 0, 0.02); -webkit-box-shadow: 0 0 10px white; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 200, from(rgba(255,255,255,.1)), to(rgba(255,255,255,.9)));
   }
   .grid-item-grey{
-    background-color: grey;
-    border: 5px solid dimgrey;
+    -webkit-box-shadow: 0 0 20px lime; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(0,255,0,.2)), to(rgba(255,255,255,.7)));
   }
 </style>
 </body>

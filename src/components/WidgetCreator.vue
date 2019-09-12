@@ -17,7 +17,8 @@
 					<div id="widgetForm">
 						Widget Name: <input type="text" id="name"><br>
 						Widget Groups: <div>
-							<div v-for="group in groups" :key="group" class="groupItem"> <!--:style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">-->{{ group }} <input type="checkbox" :value="group"></div>
+						<div v-for="(group, index) in groups" :key="group" class="groupItem">{{ group }} <input type="checkbox" :value="group" v-model="checkedGroups"><input type="button" @click="delete groups[index]" value="X"></div>
+							<div class="groupItem"><input type="text" v-model="newGroup"><input type="button" @click="addGroup()"></div>
 						</div>
 						<textarea v-model="widgetInnerHtml"></textarea>
 						<div id="previewWidget">hmm{{widgetInnerHtml}}</div><br>
@@ -37,13 +38,22 @@ export default {
   props: ['state'],
   data () {
     return {
-			groups: ["hello", "my", "dewds"],
+			groups: ["1x1", "2x1", "1x2", "2x2", "hello", "my", "dewds"],
 			widgetInnerHtml: "",
+			checkedGroups: [],
+			newGroup: ""
 		}
   },
   computed: {},
-  methods: {},
-  mounted() {},
+  methods: {
+		addGroup(){
+			if(this.newGroup !== ""){
+				this.groups.push(this.newGroup);
+			}
+			console.log(this.groups);
+		}
+	},
+  mounted() {}
 }
 </script>
 
