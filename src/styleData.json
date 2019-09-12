@@ -137,7 +137,7 @@
       }
     },
     "Default (disgusting) EPILEPSY WARNING": {
-      "colName": "Default Style",
+      "colName": "Default (disgusting) EPILEPSY WARNING",
       "dshbrdCol": {
         "bkgnd": "backgroundColor: white;",
         "siz1": "backgroundColor: aqua;",
