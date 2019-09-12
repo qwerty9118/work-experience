@@ -41,7 +41,7 @@
       }
     },
     "Default (light)": {
-      "colName": "Default Style",
+      "colName": "Default (light)",
       "dshbrdCol": {
         "bkgnd": "backgroundColor: white;",
         "siz1": "backgroundColor: aqua;",
@@ -65,12 +65,12 @@
       }
     },
     "Default (dark)": {
-      "colName": "Default Style",
+      "colName": "Default (dark)",
       "dshbrdCol": {
         "bkgnd": "backgroundColor: black;",
         "siz1": "backgroundColor: red;",
         "siz2": "backgroundColor: rgb(50, 50, 50);",
-        "siz3": "backgroundColor: crimson;",
+        "siz3": "backgroundColor: rgb(25, 25, 25);",
         "siz4": "backgroundColor: darkred;"
       },
       "mkrCol": {
@@ -89,7 +89,7 @@
       }
     },
     "Default (bubbles)": {
-      "colName": "Default Style",
+      "colName": "Default (bubbles)",
       "dshbrdCol": {
         "bkgnd": "backgroundColor: skyblue;",
         "siz1": "-webkit-box-shadow: 0 0 20px magenta; -webkit-border-radius: 200vw; background: -webkit-gradient(radial, center center, 0, center center, 140, from(rgba(255,0,255,.2)), to(rgba(255,255,255,.7)));",
@@ -113,7 +113,7 @@
       }
     },
     "Default (Z͆̓ͥ̉ͫͬ҉̶̭̟͍̯̥̰̹̱̰̮̱̬́̕͝A̢̛̬̹͎̩̳̩̺̪͚̖̲͐̄̉́̇ͩ̋ͩ̈ͥ̒̏̅͠L̄͐ͫͬͪ̿ͬͦͦ́̈ͪ҉҉̛̦̟̦̞̱͜͞G̸̼͙̟̳̩̯̯̜̈̌ͨͭͬ̔̃ͪͯ͆̃̿ͣ͒̕Ơ̡̨̗̣͇̜̠͙̟͚̺̞̝̞͑̔͒̉̍̒̒ͥͭͬ̀͌͐̂̆̿͟ͅ!̶̨̫̟̖̲̠͇͕̍͛̎͋̅͗̽̏̀ͬ̋̀ͯ̈ͨͤͧ)": {
-      "colName": "Default Style",
+      "colName": "Default (Z͆̓ͥ̉ͫͬ҉̶̭̟͍̯̥̰̹̱̰̮̱̬́̕͝A̢̛̬̹͎̩̳̩̺̪͚̖̲͐̄̉́̇ͩ̋ͩ̈ͥ̒̏̅͠L̄͐ͫͬͪ̿ͬͦͦ́̈ͪ҉҉̛̦̟̦̞̱͜͞G̸̼͙̟̳̩̯̯̜̈̌ͨͭͬ̔̃ͪͯ͆̃̿ͣ͒̕Ơ̡̨̗̣͇̜̠͙̟͚̺̞̝̞͑̔͒̉̍̒̒ͥͭͬ̀͌͐̂̆̿͟ͅ!̶̨̫̟̖̲̠͇͕̍͛̎͋̅͗̽̏̀ͬ̋̀ͯ̈ͨͤͧ)",
       "dshbrdCol": {
         "bkgnd": "backgroundColor: white;",
         "siz1": "backgroundColor: aqua;",
