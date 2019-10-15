@@ -1,19 +1,19 @@
 <template>
   <div id="WCWrapper">
-    <div @click="$emit('changeW')" v-if="state == 0" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert, height:'100%', color:'white' }">---+ To the style settings +---</div>
-    <div id="widgetCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert, height:'100%' }">
+    <div @click="$emit('changeW')" v-if="state == 0" :style="{ backgroundColor: colours.tert, height:'100%', color:'white' }">---+ To the style settings +---</div>
+    <div id="widgetCreator" v-else :style="{ backgroundColor: colours.tert, height:'100%' }">
       <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
-        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">
+        <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: colours.prim, color: colours.dtail }">
       </div>
-      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.seco, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">
-        <div id="size1Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">1x1</div>
-        <div id="size2Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">2x1</div>
-        <div id="size3Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">1x2</div>
-        <div id="size4Title" class="listTitle" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.prim, color: this.$store.state.config.cols.colDefault.mkrCol.dtail }">2x2</div>
-        <div id="size1" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
-        <div id="size2" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
-        <div id="size3" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }"></div>
-        <div id="size4" class="widgetList" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.bkgnd }">
+      <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: colours.seco, color: colours.dtail }">
+        <div id="size1Title" class="listTitle" :style="{ backgroundColor: colours.prim, color: colours.dtail }">1x1</div>
+        <div id="size2Title" class="listTitle" :style="{ backgroundColor: colours.prim, color: colours.dtail }">2x1</div>
+        <div id="size3Title" class="listTitle" :style="{ backgroundColor: colours.prim, color: colours.dtail }">1x2</div>
+        <div id="size4Title" class="listTitle" :style="{ backgroundColor: colours.prim, color: colours.dtail }">2x2</div>
+        <div id="size1" class="widgetList" :style="{ backgroundColor: colours.bkgnd }"></div>
+        <div id="size2" class="widgetList" :style="{ backgroundColor: colours.bkgnd }"></div>
+        <div id="size3" class="widgetList" :style="{ backgroundColor: colours.bkgnd }"></div>
+        <div id="size4" class="widgetList" :style="{ backgroundColor: colours.bkgnd }">
 					<div id="widgetForm">
 						Widget Name: <input type="text" id="name"><br>
 						Widget Groups: <div>
@@ -38,6 +38,7 @@ export default {
   props: ['state'],
   data () {
     return {
+			colours: {"bkgnd": "lightcyan", "prim": "deepskyblue", "seco": "blue", "tert": "navy", "dtail": "black"},
 			groups: ["1x1", "2x1", "1x2", "2x2", "hello", "my", "dewds"],
 			widgetInnerHtml: "",
 			checkedGroups: [],

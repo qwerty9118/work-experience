@@ -1,7 +1,7 @@
 <template>
   <div id="SCWrapper" style="display:grid;">
-    <div @click="$emit('changeS')" v-if="state == 0" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert, color:'white' }">---+ To the widget settings +---</div>
-    <div id="styleCreator" v-else :style="{ backgroundColor: this.$store.state.config.cols.colDefault.stylrCol.tert, height:'100%' }">
+    <div @click="$emit('changeS')" v-if="state == 0" :style="{ backgroundColor: colours.tert, color:'white' }">---+ To the widget settings +---</div>
+    <div id="styleCreator" v-else :style="{ backgroundColor: colours.tert, height:'100%' }">
       <div id="boxA">other edit bits</div>
       <div id="boxB">list options</div>
       <div id="boxC">
@@ -27,6 +27,7 @@ export default {
   props: ["state"],
   data () {
     return {
+      colours: {"bkgnd": "#FFFFE0", "prim": "#BFFF00", "seco": "lime", "tert": "green", "dtail": "black"},
       idsAndClasses: ""
     }
   },

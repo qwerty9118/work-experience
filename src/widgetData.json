@@ -1,0 +1,7 @@
+{
+  "widgetTimer": 600000,
+  "widgets": [
+    {"name":  "placeholderId", "content":  "<div>some html and stuff - things that would go in the body tag</div>", "styleClasses": ["1x1"]}
+  ]
+}
+
