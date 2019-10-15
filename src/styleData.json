@@ -5,7 +5,7 @@
   "cols": {
     "colDefault": {
       "colName": "Default Style",
-      "dshbrdCol": {"bkgnd": "backgroundColor: white;", "siz1": "backgroundColor: aqua;", "siz2": "backgroundColor: orange;", "siz3": "backgroundColor: limegreen;", "siz4": "backgroundColor: grey;"},
+      "colours": []
     },
     "Default (light)": {
       "colName": "Default (light)",
