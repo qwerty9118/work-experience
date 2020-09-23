@@ -1,10 +1,12 @@
 <template>
   <div id="gridContainer">
     <div v-for="(item, index) in dashBricksData" :key="index"><span v-html="item.insideCode"></span></div>
+    <div>{{ results }}</div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 export default {
   name: 'TheAlgorithmLite2',
   data() {
@@ -13,6 +15,7 @@ export default {
       gridItemsData: "",
       textGridData: [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]],
       dashBricksData: "",
+      results: []
     }
   },
   computed: {
@@ -43,11 +46,18 @@ export default {
     layoutGeneratorFunc() {
       this.gridItems = "";
       this.textGrid = [[0, 0, 0, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 0, 0]];
+    },
+
+    getThing(){
+      axios.get("http://localhost:8080/fileServer/styleData").then(response => {
+        this.results = response.data
+      })
     }
   },
   mounted() {
     this.layoutGeneratorFunc();
-    setInterval(this.layoutGeneratorFunc, this.$store.state.config.timB4ChangWidg)
+    //setInterval(this.layoutGeneratorFunc, this.$store.state.config.timB4ChangWidg)
+    this.getThing();
   }
 }
 </script>

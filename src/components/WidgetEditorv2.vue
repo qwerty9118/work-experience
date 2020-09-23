@@ -16,7 +16,7 @@ export default {
   },
   data () {
     return {
-      WStyle: "",
+      WStyle: "grid-template-rows: 5% 95%;",
       state: { s: 0, w: 1 }
     }
   },
@@ -28,12 +28,11 @@ export default {
         this.WStyle = "grid-template-rows: 95% 5%;";
         this.state.s = 1;
         setTimeout(this.dlayChange, 870, "s");
-      }
-      else{
-        this.WStyle = "";
+      }else if(value == "w"){
+        this.WStyle = "grid-template-rows: 5% 95%;";
         this.state.w = 1;
         setTimeout(this.dlayChange, 870, "w");
-      }
+      }else{console.log("ah. now i still have no clue what the problem is.")}
     }
   },
   mounted() {},
@@ -54,7 +53,6 @@ export default {
     grid-gap: 0px;
     padding: 0px;
     grid-template-columns: 100%;
-    grid-template-rows: 5% 95%;
     transition: grid-template-rows 1s ease 0s;
   }
 </style>

@@ -1,19 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import VueResource from 'vue-resource'
 import DashApp from './DashApp.vue'
-//var fileServer = require('./fileServer.js');
-const config = require('./styleData.json');
+//const config = require('./styleData.json');
 
-//fileServer.fileServer.listen(3000, '10.10.3.131');
-console.log("the file server is up");
 
 Vue.config.productionTip = false;
 
 Vue.use(Vuex);
+Vue.use(VueResource);
 
 const store = new Vuex.Store({
   state: {
-    config
+    //config
   }
 });
 

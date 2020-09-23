@@ -1,7 +1,8 @@
 {
   "widgetTimer": 600000,
   "widgets": [
-    {"name":  "placeholderId", "content":  "<div>some html and stuff - things that would go in the body tag</div>", "styleClasses": ["1x1"]}
+    {"name":  "placeholderId", "content":  "<div>some html and stuff - things that would go in the body tag</div>", "styleClasses": ["1x1"]},
+    {"name":  "clock", "content":  "<iframe src=\"http://free.timeanddate.com/clock/i77ytuwj/n136/szw110/szh110/hfceee/cf100/hgr0/mqc999/mql30/mqw6/mhc999/mhl10/mhw4/mmc999/hhw6\" frameborder=\"0\" width=\"110\" height=\"110\"></iframe>", "styleClasses": ["1x1"]}
   ]
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <div id="WCWrapper">
-    <div @click="$emit('changeW')" v-if="state == 0" :style="{ backgroundColor: colours.tert, height:'100%', color:'white' }">---+ To the style settings +---</div>
+  <div id="WCWrapper" style="display:grid;">
+    <div @click="$emit('changeW')" v-if="state == 0" :style="{ backgroundColor: colours.tert, color:'white' }">---+ To the style settings +---</div>
     <div id="widgetCreator" v-else :style="{ backgroundColor: colours.tert, height:'100%' }">
-      <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: this.$store.state.config.cols.colDefault.mkrCol.tert }">
+      <div id="addWidgetButton" class="addNewContainer" :style="{ backgroundColor: colours.tert }">
         <input type="button" id="createWidget" value="Create New Widget" class="addNew" :style="{ backgroundColor: colours.prim, color: colours.dtail }">
       </div>
       <div id="usedWidgets" class="usedBlock" :style="{ backgroundColor: colours.seco, color: colours.dtail }">
@@ -28,7 +28,6 @@
 				</div>
       </div>
     </div>
-		<!--  -->
   </div>
 </template>
 

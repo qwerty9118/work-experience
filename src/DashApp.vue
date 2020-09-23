@@ -10,14 +10,35 @@
   </div>
 </template>
 <script>
+
 import TheAlgorithmLite2 from './components/The Algorithm Lite Rewritten'
 import WidgetEditor from './components/WidgetEditor'
 import WidgetEditorv2 from './components/WidgetEditorv2'
+
 export default {
   name: 'app',
   data () {
     return {
-      settings: false,
+        settings: false,
+    }
+  },
+  mounted () {},
+  methods: {
+    transferData(cMethod, cFile){
+      if(cMethod == "GET"){
+        this.$http.get("http://localhost:8080/"+cFile).then(
+                res => {
+                  this.data = res.body;
+                },
+                err => {
+                  console.error(err);
+                });
+      }/*
+      else if(cMethod == "POST"){
+      }*/
+      else{
+        console.log("cMethod = "+cMethod);
+      }
     }
   },
   components: {
