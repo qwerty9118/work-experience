@@ -11,7 +11,7 @@
     "vue": "NODE_ENV=development pm2 start webpack-dev-server --name vue -- --open --hot"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "core-js": "^2.6.11",
     "es6-promise": "^4.2.8",
     "express": "^4.17.1",
